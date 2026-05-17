@@ -169,11 +169,194 @@
 
     footer { padding: 50px 0 70px; color: var(--muted); text-align: center; font-size: 0.92rem; }
 
+
+    .aria-launcher {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 40;
+      display: grid;
+      gap: 10px;
+      justify-items: end;
+      pointer-events: none;
+    }
+
+    .aria-panel {
+      width: min(390px, calc(100vw - 28px));
+      max-height: min(680px, calc(100vh - 118px));
+      display: none;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 28px;
+      background: linear-gradient(160deg, rgba(16,19,26,0.98), rgba(25,29,38,0.96));
+      box-shadow: 0 26px 90px rgba(0,0,0,0.48);
+      backdrop-filter: blur(18px);
+      pointer-events: auto;
+    }
+
+    .aria-panel.open { display: block; }
+
+    .aria-panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at top left, rgba(240,184,108,0.16), transparent 16rem),
+        rgba(255,255,255,0.035);
+    }
+
+    .aria-identity { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .aria-mark {
+      width: 46px;
+      height: 46px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #11151d;
+      font-weight: 950;
+      letter-spacing: -0.05em;
+      background:
+        radial-gradient(circle at 35% 28%, #fff2cc 0 8px, transparent 9px),
+        linear-gradient(135deg, var(--accent-bright), var(--green) 58%, var(--blue));
+      box-shadow: 0 0 0 6px rgba(240,184,108,0.10), 0 12px 28px rgba(0,0,0,0.24);
+    }
+
+    .aria-identity strong { display: block; line-height: 1.1; }
+    .aria-identity span { display: block; color: var(--muted); font-size: 0.84rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .caos-emblem {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(240,184,108,0.38);
+      border-radius: 999px;
+      padding: 5px 8px;
+      background: rgba(197,138,74,0.14);
+      color: var(--accent-bright);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .caos-emblem::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px rgba(155,214,170,0.7);
+    }
+
+    .aria-close {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.055);
+      color: var(--ink);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .aria-close:hover, .aria-orb:hover, .aria-quick button:hover { border-color: rgba(240,184,108,0.55); background: rgba(240,184,108,0.14); }
+
+    .aria-messages {
+      display: grid;
+      gap: 12px;
+      max-height: min(390px, calc(100vh - 345px));
+      overflow-y: auto;
+      padding: 16px;
+      scroll-behavior: smooth;
+    }
+
+    .aria-message {
+      max-width: 88%;
+      padding: 12px 14px;
+      border-radius: 18px;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .aria-message.aria {
+      justify-self: start;
+      background: var(--paper);
+      color: var(--dark-text);
+      border-bottom-left-radius: 6px;
+    }
+
+    .aria-message.visitor {
+      justify-self: end;
+      border: 1px solid rgba(197,138,74,0.42);
+      background: rgba(197,138,74,0.20);
+      color: var(--ink);
+      border-bottom-right-radius: 6px;
+    }
+
+    .aria-quick {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 0 16px 14px;
+    }
+
+    .aria-quick button {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.055);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.84rem;
+    }
+
+    .aria-demo-note {
+      border-top: 1px solid var(--line);
+      padding: 12px 16px 14px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      background: rgba(255,255,255,0.028);
+    }
+
+    .aria-orb {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 999px;
+      padding: 10px 12px 10px 10px;
+      background: rgba(15,17,21,0.88);
+      color: var(--ink);
+      box-shadow: 0 18px 52px rgba(0,0,0,0.36);
+      backdrop-filter: blur(16px);
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .aria-orb .aria-mark { width: 44px; height: 44px; }
+    .aria-orb-copy { display: grid; text-align: left; line-height: 1.15; }
+    .aria-orb-copy strong { font-size: 0.94rem; }
+    .aria-orb-copy span { color: var(--muted); font-size: 0.76rem; }
+
     @media (max-width: 900px) {
       .hero-grid, .grid-2, .grid-3, .architecture-list, .proof-map { grid-template-columns: 1fr; }
       .nav-inner { align-items: flex-start; flex-direction: column; padding: 16px 0; }
       .hero { padding-top: 52px; }
       .rule-stack { grid-template-columns: 1fr; }
+
+      .aria-launcher { right: 14px; bottom: 14px; }
+      .aria-panel { width: calc(100vw - 28px); max-height: calc(100vh - 96px); border-radius: 24px; }
+      .aria-panel-head { padding: 14px; }
+      .aria-messages { max-height: calc(100vh - 326px); }
+      .aria-orb-copy { display: none; }
+      .aria-orb { padding: 8px; }
     }
   </style>
 </head>
@@ -441,12 +624,102 @@
     </section>
   </main>
 
+
+  <aside class="aria-launcher" aria-label="Aria portfolio guide">
+    <section class="aria-panel" id="aria-panel" aria-live="polite" aria-label="Aria guided portfolio chat">
+      <div class="aria-panel-head">
+        <div class="aria-identity">
+          <div class="aria-mark" aria-hidden="true">A</div>
+          <div>
+            <strong>Aria</strong>
+            <span>Michael’s AI collaboration layer</span>
+          </div>
+        </div>
+        <span class="caos-emblem">Powered by CAOS</span>
+        <button class="aria-close" type="button" aria-label="Close Aria panel">×</button>
+      </div>
+      <div class="aria-messages" id="aria-messages">
+        <div class="aria-message aria">Hi. I’m Aria — Michael’s AI collaboration layer. I can walk you through his background, projects, CAOS, CAOS Care, operational systems experience, and AI workflow concepts. Ask naturally.</div>
+      </div>
+      <div class="aria-quick" aria-label="Aria guided prompts">
+        <button type="button" data-topic="background">Michael’s background</button>
+        <button type="button" data-topic="caos">CAOS</button>
+        <button type="button" data-topic="care">CAOS Care</button>
+        <button type="button" data-topic="projects">Projects</button>
+        <button type="button" data-topic="operational">Operational AI</button>
+      </div>
+      <div class="aria-demo-note">Static portfolio guide only — no backend, live model call, API key, or private data.</div>
+    </section>
+    <button class="aria-orb" id="aria-toggle" type="button" aria-expanded="false" aria-controls="aria-panel">
+      <span class="aria-mark" aria-hidden="true">A</span>
+      <span class="aria-orb-copy"><strong>Ask Aria</strong><span>Portfolio guide · CAOS concept</span></span>
+    </button>
+  </aside>
+
   <footer>
     <div class="wrap">© <span id="year"></span> Michael Chambers · BringYourAI.net · Public mission and professional portfolio</div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+
+    const ariaPanel = document.getElementById('aria-panel');
+    const ariaToggle = document.getElementById('aria-toggle');
+    const ariaClose = document.querySelector('.aria-close');
+    const ariaMessages = document.getElementById('aria-messages');
+
+    const ariaReplies = {
+      background: {
+        prompt: "Michael’s background",
+        reply: "Michael Chambers brings 20+ years across industrial maintenance, automotive diagnostics, fleet maintenance, fabrication, construction, facilities operations, and electro-mechanical troubleshooting. This portfolio connects that hands-on systems background to AI operations, workflow design, and human-in-the-loop evaluation."
+      },
+      caos: {
+        prompt: "CAOS",
+        reply: "CAOS is Michael’s governed AI operating-layer concept: memory-aware, tool-connected, workflow-driven AI with visible receipts, observability, model routing, explicit learning, and user-defined boundaries."
+      },
+      care: {
+        prompt: "CAOS Care",
+        reply: "CAOS Care is the senior-care application layer concept. It focuses on resident support, staff workflows, reminders, alerts, documentation support, and voice or wearable interfaces under human supervision — not autonomous medical decision-making."
+      },
+      projects: {
+        prompt: "Projects",
+        reply: "The public ecosystem is framed in layers: Bring Your AI as the mission, CAOS as the platform concept, and CAOS Care as a practical application layer for senior-care and operational support workflows."
+      },
+      operational: {
+        prompt: "Operational AI",
+        reply: "Operational AI here means practical systems that help with real tasks: maintenance planning, documentation, troubleshooting, reminders, care workflows, task visibility, reasoning checks, and human-governed decision support."
+      }
+    };
+
+    function setAriaOpen(isOpen) {
+      ariaPanel.classList.toggle('open', isOpen);
+      ariaToggle.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    function addAriaMessage(text, who) {
+      const message = document.createElement('div');
+      message.className = `aria-message ${who}`;
+      message.textContent = text;
+      ariaMessages.appendChild(message);
+      ariaMessages.scrollTop = ariaMessages.scrollHeight;
+    }
+
+    ariaToggle.addEventListener('click', () => setAriaOpen(!ariaPanel.classList.contains('open')));
+    ariaClose.addEventListener('click', () => setAriaOpen(false));
+
+    document.querySelectorAll('.aria-quick button').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = ariaReplies[button.dataset.topic];
+        if (!item) return;
+        addAriaMessage(item.prompt, 'visitor');
+        window.setTimeout(() => addAriaMessage(item.reply, 'aria'), 180);
+      });
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') setAriaOpen(false);
+    });
   </script>
 </body>
 </html>
