@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Bring Your AI</title>
+  <meta name="description" content="Working projects, prototypes, domains, and live links from Michael Chambers, CAOS, CAOS Care, and Bring Your AI." />
+  <style>
+    :root {
+      --bg: #0f1115;
+      --paper: #f6efe3;
+      --ink: #f8efe1;
+      --muted: #c6b9a8;
+      --dark: #232832;
+      --line: rgba(255,255,255,0.14);
+      --accent: #c58a4a;
+      --accent-bright: #f0b86c;
+      --green: #9bd6aa;
+      --red: #f29b9b;
+      --blue: #86b7ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, rgba(197,138,74,.18), transparent 32rem), var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 22px; }
+    nav { border-bottom: 1px solid var(--line); background: rgba(15,17,21,.86); position: sticky; top: 0; z-index: 10; backdrop-filter: blur(14px); }
+    .nav-inner { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-weight: 800; text-decoration: none; }
+    .brand span { color: var(--accent-bright); }
+    .links { display: flex; flex-wrap: wrap; gap: 16px; color: var(--muted); font-size: .94rem; }
+    .links a { text-decoration: none; }
+    .links a:hover { color: var(--ink); }
+    header { padding: 76px 0 34px; }
+    .eyebrow { color: var(--accent-bright); border: 1px solid var(--line); display: inline-block; border-radius: 999px; padding: 8px 12px; margin-bottom: 18px; }
+    h1 { font-size: clamp(3rem, 8vw, 6.5rem); line-height: .9; letter-spacing: -.075em; margin: 0 0 20px; }
+    .lead { color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.32rem); max-width: 860px; }
+    section { padding: 24px 0; }
+    .card { background: rgba(255,255,255,.055); border: 1px solid var(--line); border-radius: 28px; padding: 28px; }
+    .card.paper { background: var(--paper); color: var(--dark); border-color: rgba(20,20,20,.12); }
+    h2 { margin: 0 0 14px; font-size: clamp(1.8rem, 4vw, 3rem); letter-spacing: -.05em; line-height: 1; }
+    .sub { color: var(--muted); max-width: 850px; margin: 0 0 20px; }
+    .paper .sub { color: #657082; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .project { border: 1px solid var(--line); background: rgba(255,255,255,.045); border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+    .paper .project { background: #fffaf2; border-color: #dcccb6; }
+    .project h3 { margin: 0; font-size: 1.12rem; }
+    .project p { margin: 0; color: var(--muted); }
+    .paper .project p { color: #657082; }
+    .status { display: inline-flex; align-self: flex-start; border-radius: 999px; padding: 5px 9px; font-size: .78rem; font-weight: 800; border: 1px solid currentColor; }
+    .live { color: var(--green); }
+    .prototype { color: var(--blue); }
+    .needs-work { color: var(--red); }
+    .concept { color: var(--accent-bright); }
+    .button { margin-top: auto; display: inline-flex; justify-content: center; border-radius: 999px; background: var(--accent); color: #141414; padding: 10px 14px; text-decoration: none; font-weight: 800; }
+    .button.secondary { background: transparent; color: inherit; border: 1px solid currentColor; }
+    .notes { display: grid; gap: 12px; }
+    .note { border-left: 4px solid var(--accent); padding: 12px 14px; background: rgba(255,255,255,.045); border-radius: 14px; color: var(--muted); }
+    footer { color: var(--muted); text-align: center; padding: 50px 0 70px; }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } .nav-inner { flex-direction: column; align-items: flex-start; padding: 16px 0; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html">Bring<span>YourAI</span>.net</a>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="#live">Live</a>
+        <a href="#prototypes">Prototypes</a>
+        <a href="#domains">Domains</a>
+        <a href="#recovery">Recovery Notes</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="wrap">
+    <div class="eyebrow">Working projects · prototypes · owned domains · recovery map</div>
+    <h1>Project Portfolio</h1>
+    <p class="lead">This is the proof wall: public links, working prototypes, domain assets, and product directions connected to Michael Chambers, Bring Your AI, CAOS, and CAOS Care.</p>
+  </header>
+
+  <main>
+    <section id="live" class="wrap">
+      <div class="card">
+        <h2>Live / Viewable Projects</h2>
+        <p class="sub">These are links that are currently known and intended to be viewable as public or preview surfaces.</p>
+        <div class="grid">
+          <article class="project">
+            <span class="status live">LIVE</span>
+            <h3>Bring Your AI</h3>
+            <p>Public mission, resume, and AI systems portfolio layer. Currently hosted through GitHub Pages while the owned domain path is finalized.</p>
+            <a class="button" href="https://caosos.github.io/bringyourai.net/" target="_blank" rel="noopener">Open Site</a>
+          </article>
+          <article class="project">
+            <span class="status live">LIVE</span>
+            <h3>CAOS</h3>
+            <p>Public CAOS domain describing the Cognitive Adaptive Operating System concept and current public platform identity.</p>
+            <a class="button" href="https://caosos.com" target="_blank" rel="noopener">Open CAOS</a>
+          </article>
+          <article class="project">
+            <span class="status prototype">PREVIEW</span>
+            <h3>CAOS Care Node</h3>
+            <p>Base44 preview prototype for senior-care kiosk / call-system concepts, staff dashboard, wearables, accessibility, and AI companion surfaces.</p>
+            <a class="button" href="https://caos-care-link.base44.app" target="_blank" rel="noopener">Open Preview</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="prototypes" class="wrap">
+      <div class="card paper">
+        <h2>Prototype / Build Surfaces</h2>
+        <p class="sub">These are not all finished products. They represent build history, proof of work, UI direction, and concept exploration.</p>
+        <div class="grid">
+          <article class="project">
+            <span class="status prototype">PROTOTYPE</span>
+            <h3>CAOS Chat Prototype</h3>
+            <p>Base44 chat prototype showing CAOS conversation interface, model controls, memory/context framing, and AI workbench direction.</p>
+            <a class="button secondary" href="https://caos-chat-9c5683d8.base44.app/Chat" target="_blank" rel="noopener">Open Prototype</a>
+          </article>
+          <article class="project">
+            <span class="status prototype">REFERENCE</span>
+            <h3>CAOS Public Repository</h3>
+            <p>Public clean-rebuild repository for CAOS architecture, public docs, roadmap, and AI-readable project framing.</p>
+            <a class="button secondary" href="https://github.com/caosos/caosai.net" target="_blank" rel="noopener">Open Repo</a>
+          </article>
+          <article class="project">
+            <span class="status prototype">REFERENCE</span>
+            <h3>CAOS Care Repository</h3>
+            <p>Private/active CAOS Care build direction repository. Public site should avoid exposing private implementation details or sensitive operational data.</p>
+            <a class="button secondary" href="https://github.com/caosos/CAOSCARE.COM" target="_blank" rel="noopener">Open Repo</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="domains" class="wrap">
+      <div class="card">
+        <h2>Owned / Intended Domains</h2>
+        <p class="sub">Domain ownership is an asset. Deployment is a separate connection step. A domain can be owned but still show nothing if DNS, SSL, or the platform deployment mapping is broken.</p>
+        <div class="grid">
+          <article class="project">
+            <span class="status live">ACTIVE DIRECTION</span>
+            <h3>bringyourai.net</h3>
+            <p>Primary public mission / professional identity layer. Should eventually replace the GitHub Pages preview URL.</p>
+            <a class="button" href="https://bringyourai.net" target="_blank" rel="noopener">Try Domain</a>
+          </article>
+          <article class="project">
+            <span class="status live">ACTIVE</span>
+            <h3>caosos.com</h3>
+            <p>Public CAOS identity and platform explanation.</p>
+            <a class="button" href="https://caosos.com" target="_blank" rel="noopener">Open Domain</a>
+          </article>
+          <article class="project">
+            <span class="status needs-work">NEEDS VERIFY</span>
+            <h3>caoscare.com</h3>
+            <p>Intended CAOS Care product domain. Needs DNS/deployment verification against the current owned build target.</p>
+            <a class="button secondary" href="https://caoscare.com" target="_blank" rel="noopener">Try Domain</a>
+          </article>
+          <article class="project">
+            <span class="status needs-work">NEEDS RECOVERY</span>
+            <h3>CAOS Connect</h3>
+            <p>Owned/built concept site according to project history. Current working URL and deployment target need verification.</p>
+            <a class="button secondary" href="#recovery">Recovery Notes</a>
+          </article>
+          <article class="project">
+            <span class="status needs-work">NEEDS RECOVERY</span>
+            <h3>CAOS Trainings</h3>
+            <p>Owned/built concept site according to project history. Likely affected by old Emergent/Base44 deployment coupling.</p>
+            <a class="button secondary" href="#recovery">Recovery Notes</a>
+          </article>
+          <article class="project">
+            <span class="status concept">PLANNED MAP</span>
+            <h3>Domain Inventory</h3>
+            <p>Next step is a full table of registrar, DNS target, platform target, repo, live URL, and current status for every domain.</p>
+            <a class="button secondary" href="mailto:mytaxicloud@gmail.com">Send Updates</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="recovery" class="wrap">
+      <div class="card paper">
+        <h2>Domain Recovery Notes</h2>
+        <p class="sub">If a site was built on Emergent or Base44 and the owned domain no longer works, this is the likely failure chain.</p>
+        <div class="notes">
+          <div class="note"><strong>Owned domain ≠ deployed site.</strong> The domain can be registered and paid for while the app target is broken, deleted, renamed, or disconnected.</div>
+          <div class="note"><strong>DNS may still point to the old platform.</strong> If CAOS Connect or CAOS Trainings were tied to Emergent, their CNAME/A records may point to a platform target that no longer serves the app.</div>
+          <div class="note"><strong>Platform previews can survive while custom domains fail.</strong> A Base44 or Emergent preview URL can work even when the custom domain is not connected.</div>
+          <div class="note"><strong>SSL/certificate provisioning can block the site.</strong> Even correct DNS can fail if the platform has not issued or renewed HTTPS for the custom domain.</div>
+          <div class="note"><strong>Recovery path:</strong> inventory every domain, identify registrar/DNS host, identify intended app/repo, inspect DNS records, then choose whether to repoint to GitHub Pages, owned server, Base44, or a new deployment target.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year"></span> Michael Chambers · BringYourAI.net project portfolio</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
