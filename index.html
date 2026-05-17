@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bring Your AI | Michael Chambers</title>
+  <meta name="description" content="Bring Your AI is Michael Chambers' public mission, resume, and AI systems portfolio: user-owned AI, governed workflows, CAOS, CAOS Care, and real-world operational intelligence." />
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #171a21;
+      --panel-soft: #20242d;
+      --paper: #f6efe3;
+      --paper-soft: #efe3d0;
+      --ink: #f8efe1;
+      --muted: #c6b9a8;
+      --dark-text: #232832;
+      --line: rgba(255,255,255,0.14);
+      --accent: #c58a4a;
+      --accent-bright: #f0b86c;
+      --blue: #86b7ff;
+      --green: #9bd6aa;
+      --shadow: 0 24px 80px rgba(0,0,0,0.32);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(197,138,74,0.20), transparent 34rem),
+        radial-gradient(circle at top right, rgba(134,183,255,0.16), transparent 32rem),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 22px; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: rgba(15,17,21,0.76);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 70px;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: 1.12rem;
+    }
+
+    .brand span { color: var(--accent-bright); }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .nav-links a { text-decoration: none; }
+    .nav-links a:hover { color: var(--ink); }
+
+    .hero {
+      padding: 86px 0 58px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: var(--accent-bright);
+      background: rgba(255,255,255,0.04);
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 9vw, 7.6rem);
+      line-height: 0.88;
+      letter-spacing: -0.08em;
+      margin: 0 0 26px;
+    }
+
+    .hero p.lead {
+      font-size: clamp(1.14rem, 2vw, 1.42rem);
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 0 30px;
+    }
+
+    .rule-stack {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 28px 0;
+      max-width: 690px;
+    }
+
+    .rule {
+      background: rgba(255,255,255,0.055);
+      border: 1px solid var(--line);
+      padding: 14px 16px;
+      border-radius: 18px;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      text-decoration: none;
+      font-weight: 800;
+      background: var(--accent);
+      color: #141414;
+    }
+    .button.secondary { background: transparent; color: var(--ink); }
+
+    .visual-card {
+      background: linear-gradient(160deg, rgba(255,255,255,0.09), rgba(255,255,255,0.025));
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .terminal {
+      background: #080a0d;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      overflow: hidden;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.9rem;
+    }
+
+    .terminal-top {
+      display: flex;
+      gap: 8px;
+      padding: 14px;
+      background: #11151d;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); opacity: 0.9; }
+    .dot:nth-child(2) { background: var(--green); }
+    .dot:nth-child(3) { background: var(--blue); }
+
+    .terminal-body { padding: 20px; color: #d9e2ef; }
+    .terminal-body p { margin: 0 0 12px; }
+    .terminal-body .muted { color: #8fa1b7; }
+    .terminal-body .accent { color: var(--accent-bright); }
+    .terminal-body .green { color: var(--green); }
+
+    section { padding: 38px 0; }
+    .section-card {
+      background: rgba(255,255,255,0.055);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 34px;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.14);
+    }
+
+    .paper {
+      background: var(--paper);
+      color: var(--dark-text);
+      border-color: rgba(20,20,20,0.12);
+    }
+    .paper .muted, .paper p.sub { color: #657082; }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+      margin: 0 0 16px;
+    }
+
+    p.sub {
+      color: var(--muted);
+      max-width: 820px;
+      font-size: 1.06rem;
+      margin: 0 0 24px;
+    }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+    .mini-card {
+      background: rgba(255,255,255,0.055);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+    }
+    .paper .mini-card { background: #fffaf2; border-color: #dcccb6; }
+
+    .mini-card h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .mini-card p { margin: 0; color: var(--muted); }
+    .paper .mini-card p { color: #657082; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .tag {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.055);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .paper .tag { background: var(--paper-soft); color: #3f4856; border-color: #dcccb6; }
+
+    .profile-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .contact-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .contact-pills a, .contact-pills span {
+      background: #fffaf2;
+      border: 1px solid #dcccb6;
+      border-radius: 999px;
+      padding: 9px 12px;
+      text-decoration: none;
+      color: #3f4856;
+      font-size: 0.92rem;
+    }
+
+    .timeline { display: grid; gap: 16px; }
+    .role {
+      border-left: 4px solid var(--accent);
+      padding-left: 16px;
+    }
+    .role h3 { margin: 0; }
+    .role .meta { color: #657082; margin: 4px 0 8px; }
+    ul { margin: 10px 0 0 20px; padding: 0; }
+    li { margin-bottom: 6px; }
+
+    .architecture-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .arch-item {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.045);
+      border-radius: 18px;
+      padding: 14px;
+      color: var(--muted);
+    }
+    .arch-item strong { color: var(--ink); display: block; margin-bottom: 4px; }
+
+    footer {
+      padding: 50px 0 70px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .grid-2, .grid-3, .architecture-list { grid-template-columns: 1fr; }
+      .nav-inner { align-items: flex-start; flex-direction: column; padding: 16px 0; }
+      .hero { padding-top: 52px; }
+      .rule-stack { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap nav-inner">
+      <div class="brand">Bring<span>YourAI</span>.net</div>
+      <div class="nav-links">
+        <a href="#mission">Mission</a>
+        <a href="#michael">Michael</a>
+        <a href="#caos">CAOS</a>
+        <a href="#care">CAOS Care</a>
+        <a href="#resume">Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Public identity · mission · AI systems portfolio</div>
+          <h1>Bring Your AI</h1>
+          <p class="lead">AI should belong to the user — not the platform. Bring Your AI is a practical systems vision for memory-aware, workflow-aware, device-aware, human-governed AI.</p>
+          <div class="rule-stack">
+            <div class="rule">Your memory.</div>
+            <div class="rule">Your workflows.</div>
+            <div class="rule">Your devices.</div>
+            <div class="rule">Your rules.</div>
+          </div>
+          <div class="actions">
+            <a class="button" href="#mission">Explore the Mission</a>
+            <a class="button secondary" href="#resume">Resume / Experience</a>
+          </div>
+        </div>
+        <div class="visual-card">
+          <div class="terminal">
+            <div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="terminal-body">
+              <p><span class="muted">system:</span> user-owned AI operating layer</p>
+              <p><span class="accent">memory</span> → explicit, inspectable, correctable</p>
+              <p><span class="accent">workflow</span> → governed, receipt-backed, bounded</p>
+              <p><span class="accent">devices</span> → voice, wearable, building-aware</p>
+              <p><span class="green">mission</span> → practical AI for real-world operations</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="mission" class="wrap">
+      <div class="section-card">
+        <h2>The Mission</h2>
+        <p class="sub">Bring Your AI is the idea that personal AI should move with the person, respect the person, and operate under the person’s rules. The future is not one chatbot trapped in one website. The future is governed AI that can support real workflows across tools, devices, environments, and time.</p>
+        <div class="grid-3">
+          <div class="mini-card"><h3>User-Owned Context</h3><p>Memory should be explicit, inspectable, portable, correctable, and governed by the user.</p></div>
+          <div class="mini-card"><h3>Operational Workflows</h3><p>AI should help with real tasks: maintenance, documentation, reminders, care workflows, planning, and technical reasoning.</p></div>
+          <div class="mini-card"><h3>Device-Aware AI</h3><p>Voice, wearables, tablets, sensors, and building systems can become part of a human-centered assistance layer.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="michael" class="wrap">
+      <div class="section-card paper">
+        <div class="profile-header">
+          <div>
+            <h2>Michael Chambers</h2>
+            <p class="sub">Technical Systems Specialist · AI Operations · Real-World Diagnostics · Industrial Maintenance · Fabrication · Systems Troubleshooting</p>
+          </div>
+          <div class="contact-pills">
+            <span>Conway, Arkansas</span>
+            <a href="tel:+15015851686">501-585-1686</a>
+            <a href="mailto:mytaxicloud@gmail.com">mytaxicloud@gmail.com</a>
+            <span>Remote / Hybrid Preferred</span>
+          </div>
+        </div>
+        <p>Michael Chambers brings more than 20 years of hands-on experience across industrial maintenance, automotive diagnostics, fleet maintenance, fabrication, construction, facilities operations, and electro-mechanical troubleshooting. His work is grounded in physical systems, operational pressure, diagnostics, repair logic, safety, and the practical consequences of failure.</p>
+        <p>That same systems discipline now drives his work with AI: workflow design, reasoning evaluation, human-in-the-loop operations, memory-aware systems, and practical AI infrastructure for real-world environments.</p>
+
+        <div class="grid-2">
+          <div class="mini-card">
+            <h3>Technical & Operational</h3>
+            <div class="tags">
+              <span class="tag">Industrial Maintenance</span><span class="tag">Electro-Mechanical Troubleshooting</span><span class="tag">Automotive Diagnostics</span><span class="tag">Fleet Maintenance</span><span class="tag">Building Maintenance</span><span class="tag">Fabrication & Welding</span><span class="tag">Metal / Wood Fabrication</span><span class="tag">Hydraulics & Pneumatics</span><span class="tag">Electrical Diagnostics</span><span class="tag">Preventive Maintenance</span><span class="tag">Root Cause Analysis</span><span class="tag">Blueprint & Schematic Reading</span>
+            </div>
+          </div>
+          <div class="mini-card">
+            <h3>AI & Technology</h3>
+            <div class="tags">
+              <span class="tag">AI Workflow Development</span><span class="tag">AI Reasoning Evaluation</span><span class="tag">Human-in-the-Loop AI</span><span class="tag">Prompt Engineering</span><span class="tag">AI-Assisted Documentation</span><span class="tag">Operational AI Applications</span><span class="tag">Contextual Memory Concepts</span><span class="tag">Workflow Governance</span><span class="tag">Voice / Wearable AI</span><span class="tag">AI Output Verification</span><span class="tag">Systems Architecture Concepts</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="caos" class="wrap">
+      <div class="section-card">
+        <h2>CAOS</h2>
+        <p class="sub">CAOS is a governed AI operating-layer concept: an architecture for memory-aware, tool-connected, workflow-driven AI that remains visible and accountable to the user.</p>
+        <div class="architecture-list">
+          <div class="arch-item"><strong>Memory Systems</strong>Structured context instead of one unmanaged conversation.</div>
+          <div class="arch-item"><strong>Context Hydration</strong>Pulling the right context into the right task at the right time.</div>
+          <div class="arch-item"><strong>Tool Orchestration</strong>Permissioned access to files, repos, connectors, and actions.</div>
+          <div class="arch-item"><strong>Model Routing</strong>Using the model that fits the task instead of overusing one engine.</div>
+          <div class="arch-item"><strong>Receipts</strong>Visible proof of actions, boundaries, and execution results.</div>
+          <div class="arch-item"><strong>Observability</strong>Making workflow state, failures, and decisions inspectable.</div>
+          <div class="arch-item"><strong>Explicit Learning</strong>No silent mutation; learning should be deliberate and correctable.</div>
+          <div class="arch-item"><strong>Governance</strong>User rules, safety boundaries, and stop gates around agent action.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="care" class="wrap">
+      <div class="section-card paper">
+        <h2>CAOS Care</h2>
+        <p class="sub">CAOS Care is the senior-care application layer: practical AI support for residents, staff, reminders, alerts, documentation, and assistive workflows. It is intended as a human-supervised support layer, not an autonomous medical decision-maker.</p>
+        <div class="grid-3">
+          <div class="mini-card"><h3>Resident Support</h3><p>Voice-first assistance, reminders, simple requests, reassurance, and context continuity.</p></div>
+          <div class="mini-card"><h3>Staff Support</h3><p>Workflow routing, documentation support, task visibility, and operational prioritization.</p></div>
+          <div class="mini-card"><h3>Wearable / Device Layer</h3><p>Pendant-style devices, tablets, voice interfaces, and environmental signals connected to governed workflows.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ecosystem" class="wrap">
+      <div class="section-card">
+        <h2>Projects / Ecosystem</h2>
+        <p class="sub">These are connected layers of the same public direction: identity, platform, product application, and professional proof.</p>
+        <div class="grid-3">
+          <div class="mini-card"><h3>Bring Your AI</h3><p>The mission layer: user-owned AI, portability, memory, devices, and human governance.</p></div>
+          <div class="mini-card"><h3>CAOS</h3><p>The platform layer: memory, orchestration, tools, receipts, routing, and governed execution.</p></div>
+          <div class="mini-card"><h3>CAOS Care</h3><p>The application layer: senior-care workflows, staff support, resident support, and assistive systems.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume" class="wrap">
+      <div class="section-card paper">
+        <h2>Resume / Contact</h2>
+        <p class="sub">Available for remote or hybrid roles involving AI operations, AI evaluation, workflow analysis, technical review, diagnostics, systems analysis, and operational support.</p>
+        <div class="actions">
+          <a class="button" href="resume.pdf">Download Resume PDF</a>
+          <a class="button secondary" href="mailto:mytaxicloud@gmail.com">Email Michael</a>
+          <a class="button secondary" href="tel:+15015851686">Call 501-585-1686</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year"></span> Michael Chambers · BringYourAI.net · Public mission and professional portfolio</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
