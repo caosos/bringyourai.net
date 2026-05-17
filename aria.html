@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ask Aria | Bring Your AI</title>
+  <meta name="description" content="Meet Aria, Michael's AI collaborator and guide for BringYourAI and CAOS." />
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #171a21;
+      --paper: #f6efe3;
+      --ink: #f8efe1;
+      --muted: #c6b9a8;
+      --dark: #232832;
+      --line: rgba(255,255,255,0.14);
+      --accent: #c58a4a;
+      --accent-bright: #f0b86c;
+      --green: #9bd6aa;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(197,138,74,.20), transparent 34rem),
+        radial-gradient(circle at bottom right, rgba(134,183,255,.12), transparent 28rem),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 22px; }
+    nav { border-bottom: 1px solid var(--line); background: rgba(15,17,21,.82); backdrop-filter: blur(14px); }
+    .nav-inner { min-height: 70px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .brand { text-decoration: none; font-weight: 850; letter-spacing: -.03em; }
+    .brand span { color: var(--accent-bright); }
+    .nav-links { display: flex; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: .94rem; }
+    .nav-links a { text-decoration: none; }
+    .nav-links a:hover { color: var(--ink); }
+    main { padding: 64px 0; }
+    .grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(340px, 1.1fr); gap: 28px; align-items: start; }
+    .intro, .chat { border: 1px solid var(--line); background: rgba(255,255,255,.055); border-radius: 30px; padding: 30px; box-shadow: 0 20px 70px rgba(0,0,0,.25); }
+    .eyebrow { color: var(--accent-bright); border: 1px solid var(--line); display: inline-flex; border-radius: 999px; padding: 7px 11px; margin-bottom: 18px; }
+    h1 { font-size: clamp(2.7rem, 8vw, 6rem); line-height: .9; letter-spacing: -.07em; margin: 0 0 22px; }
+    .lead { color: var(--muted); font-size: 1.12rem; margin: 0 0 22px; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .pill { border: 1px solid var(--line); background: rgba(255,255,255,.055); border-radius: 999px; padding: 7px 10px; color: var(--muted); font-size: .88rem; }
+    .button { display: inline-flex; margin-top: 22px; border-radius: 999px; padding: 12px 16px; background: var(--accent); color: #141414; font-weight: 850; text-decoration: none; }
+    .chat { padding: 0; overflow: hidden; background: #10131a; }
+    .chat-head { padding: 18px 20px; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 14px; background: rgba(255,255,255,.045); }
+    .agent { display: flex; align-items: center; gap: 12px; }
+    .avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-bright), var(--green)); color: #111; display: grid; place-items: center; font-weight: 900; }
+    .agent strong { display: block; }
+    .agent span { display: block; color: var(--muted); font-size: .88rem; }
+    .status { color: var(--green); font-size: .84rem; border: 1px solid rgba(155,214,170,.35); border-radius: 999px; padding: 5px 9px; }
+    .messages { padding: 20px; display: grid; gap: 14px; min-height: 420px; }
+    .msg { max-width: 86%; padding: 14px 16px; border-radius: 18px; }
+    .msg.aria { background: var(--paper); color: var(--dark); border-bottom-left-radius: 6px; }
+    .msg.user { justify-self: end; background: rgba(197,138,74,.22); border: 1px solid rgba(197,138,74,.4); border-bottom-right-radius: 6px; }
+    .suggestions { display: flex; gap: 8px; flex-wrap: wrap; padding: 0 20px 18px; }
+    .suggestions button { border: 1px solid var(--line); background: rgba(255,255,255,.055); color: var(--ink); border-radius: 999px; padding: 8px 10px; cursor: pointer; }
+    .suggestions button:hover { background: rgba(240,184,108,.15); }
+    .input { border-top: 1px solid var(--line); padding: 14px; display: flex; gap: 10px; background: rgba(255,255,255,.035); }
+    input { flex: 1; border: 1px solid var(--line); background: #0b0d12; color: var(--ink); border-radius: 999px; padding: 12px 14px; font: inherit; }
+    .send { border: 0; border-radius: 999px; padding: 12px 16px; background: var(--accent); color: #111; font-weight: 850; cursor: pointer; }
+    .note { color: var(--muted); font-size: .88rem; padding: 0 20px 18px; }
+    footer { color: var(--muted); text-align: center; padding: 30px 0 60px; }
+    @media (max-width: 880px) { .grid { grid-template-columns: 1fr; } .nav-inner { flex-direction: column; align-items: flex-start; padding: 16px 0; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html">Bring<span>YourAI</span>.net</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="aria.html">Ask Aria</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <div class="grid">
+      <section class="intro">
+        <div class="eyebrow">Resident AI guide · CAOS concept layer</div>
+        <h1>Ask Aria</h1>
+        <p class="lead">Aria is Michael’s AI collaborator and guide for BringYourAI, powered by CAOS — the Cognitive Adaptive Operating System.</p>
+        <p class="lead">This page is the public-facing chat layer concept: a friendly, general-purpose guide that can explain Michael’s work, AI concepts, systems ideas, work history, and the mission behind CAOS and BringYourAI.</p>
+        <div class="pill-row">
+          <span class="pill">Michael-aware</span>
+          <span class="pill">General questions</span>
+          <span class="pill">AI systems</span>
+          <span class="pill">Public-safe context</span>
+          <span class="pill">CAOS powered</span>
+        </div>
+        <a class="button" href="index.html">Back to main profile</a>
+      </section>
+
+      <section class="chat" aria-label="Aria chat interface demo">
+        <div class="chat-head">
+          <div class="agent">
+            <div class="avatar">A</div>
+            <div>
+              <strong>Aria</strong>
+              <span>Michael’s AI collaborator</span>
+            </div>
+          </div>
+          <div class="status">Concept demo</div>
+        </div>
+        <div class="messages" id="messages">
+          <div class="msg aria">Hi, I’m Aria.<br><br>I’m Michael’s AI collaborator and guide for BringYourAI, powered by CAOS — the Cognitive Adaptive Operating System.<br><br>I can help you explore Michael’s projects, AI concepts, systems ideas, work history, and the mission behind CAOS and BringYourAI.<br><br>I can also answer general questions about technology, life, systems, problem-solving, or whatever else you might need help understanding.</div>
+        </div>
+        <div class="suggestions">
+          <button data-q="Tell me about Michael's work history.">Work history</button>
+          <button data-q="What is CAOS?">What is CAOS?</button>
+          <button data-q="What is BringYourAI?">BringYourAI</button>
+          <button data-q="What kind of AI work is Michael focused on?">AI focus</button>
+        </div>
+        <div class="input">
+          <input id="prompt" placeholder="Ask Aria anything..." />
+          <button class="send" id="send">Send</button>
+        </div>
+        <div class="note">Live model wiring is intentionally not enabled yet. This is the public chat-interface layer and introduction behavior for the future governed AI backend.</div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year"></span> Michael · BringYourAI.net</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const canned = {
+      "Tell me about Michael's work history.": "Michael has more than 20 years of hands-on systems experience across industrial maintenance, automotive diagnostics, fleet maintenance, fabrication, construction, facilities operations, and electro-mechanical troubleshooting.",
+      "What is CAOS?": "CAOS means Cognitive Adaptive Operating System. It is Michael's governed AI operating-layer concept focused on memory, workflows, tool use, observability, receipts, and human-directed AI collaboration.",
+      "What is BringYourAI?": "BringYourAI is the idea that your AI, memory, workflows, identity, devices, and rules should travel with you instead of staying trapped inside disconnected platforms.",
+      "What kind of AI work is Michael focused on?": "Michael is focused on operational AI: practical systems where AI supports real-world workflows, diagnostics, maintenance, care systems, local workbenches, and human-supervised automation."
+    };
+
+    function addMessage(text, who) {
+      const messages = document.getElementById('messages');
+      const div = document.createElement('div');
+      div.className = `msg ${who}`;
+      div.textContent = text;
+      messages.appendChild(div);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    function replyTo(text) {
+      const answer = canned[text] || "This public Aria interface is staged as a concept demo right now. The live governed AI backend will answer that kind of question once it is wired to Michael's approved public context layer.";
+      setTimeout(() => addMessage(answer, 'aria'), 250);
+    }
+
+    document.querySelectorAll('.suggestions button').forEach(button => {
+      button.addEventListener('click', () => {
+        const q = button.dataset.q;
+        addMessage(q, 'user');
+        replyTo(q);
+      });
+    });
+
+    document.getElementById('send').addEventListener('click', () => {
+      const input = document.getElementById('prompt');
+      const text = input.value.trim();
+      if (!text) return;
+      addMessage(text, 'user');
+      input.value = '';
+      replyTo(text);
+    });
+
+    document.getElementById('prompt').addEventListener('keydown', event => {
+      if (event.key === 'Enter') document.getElementById('send').click();
+    });
+  </script>
+</body>
+</html>
