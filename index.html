@@ -8,8 +8,6 @@
   <style>
     :root {
       --bg: #0f1115;
-      --panel: #171a21;
-      --panel-soft: #20242d;
       --paper: #f6efe3;
       --paper-soft: #efe3d0;
       --ink: #f8efe1;
@@ -44,7 +42,7 @@
       top: 0;
       z-index: 10;
       backdrop-filter: blur(16px);
-      background: rgba(15,17,21,0.76);
+      background: rgba(15,17,21,0.80);
       border-bottom: 1px solid var(--line);
     }
 
@@ -56,35 +54,15 @@
       gap: 20px;
     }
 
-    .brand {
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      font-size: 1.12rem;
-    }
-
+    .brand { font-weight: 800; letter-spacing: -0.03em; font-size: 1.12rem; }
     .brand span { color: var(--accent-bright); }
 
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
-
+    .nav-links { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.92rem; color: var(--muted); }
     .nav-links a { text-decoration: none; }
     .nav-links a:hover { color: var(--ink); }
 
-    .hero {
-      padding: 86px 0 58px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-      gap: 34px;
-      align-items: center;
-    }
+    .hero { padding: 86px 0 58px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr); gap: 34px; align-items: center; }
 
     .eyebrow {
       display: inline-flex;
@@ -99,36 +77,11 @@
       margin-bottom: 20px;
     }
 
-    h1 {
-      font-size: clamp(3.2rem, 9vw, 7.6rem);
-      line-height: 0.88;
-      letter-spacing: -0.08em;
-      margin: 0 0 26px;
-    }
+    h1 { font-size: clamp(3.2rem, 9vw, 7.6rem); line-height: 0.88; letter-spacing: -0.08em; margin: 0 0 26px; }
+    .hero p.lead { font-size: clamp(1.14rem, 2vw, 1.42rem); color: var(--muted); max-width: 760px; margin: 0 0 30px; }
 
-    .hero p.lead {
-      font-size: clamp(1.14rem, 2vw, 1.42rem);
-      color: var(--muted);
-      max-width: 760px;
-      margin: 0 0 30px;
-    }
-
-    .rule-stack {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin: 28px 0;
-      max-width: 690px;
-    }
-
-    .rule {
-      background: rgba(255,255,255,0.055);
-      border: 1px solid var(--line);
-      padding: 14px 16px;
-      border-radius: 18px;
-      color: var(--ink);
-      font-weight: 700;
-    }
+    .rule-stack { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 28px 0; max-width: 690px; }
+    .rule { background: rgba(255,255,255,0.055); border: 1px solid var(--line); padding: 14px 16px; border-radius: 18px; color: var(--ink); font-weight: 700; }
 
     .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
     .button {
@@ -145,151 +98,79 @@
       color: #141414;
     }
     .button.secondary { background: transparent; color: var(--ink); }
+    .paper .button.secondary { color: var(--dark-text); border-color: rgba(20,20,20,0.22); }
 
-    .visual-card {
-      background: linear-gradient(160deg, rgba(255,255,255,0.09), rgba(255,255,255,0.025));
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .terminal {
-      background: #080a0d;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 22px;
-      overflow: hidden;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.9rem;
-    }
-
-    .terminal-top {
-      display: flex;
-      gap: 8px;
-      padding: 14px;
-      background: #11151d;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
+    .visual-card { background: linear-gradient(160deg, rgba(255,255,255,0.09), rgba(255,255,255,0.025)); border: 1px solid var(--line); border-radius: 30px; padding: 24px; box-shadow: var(--shadow); }
+    .terminal { background: #080a0d; border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; overflow: hidden; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.9rem; }
+    .terminal-top { display: flex; gap: 8px; padding: 14px; background: #11151d; border-bottom: 1px solid rgba(255,255,255,0.08); }
     .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); opacity: 0.9; }
     .dot:nth-child(2) { background: var(--green); }
     .dot:nth-child(3) { background: var(--blue); }
-
     .terminal-body { padding: 20px; color: #d9e2ef; }
     .terminal-body p { margin: 0 0 12px; }
     .terminal-body .muted { color: #8fa1b7; }
     .terminal-body .accent { color: var(--accent-bright); }
     .terminal-body .green { color: var(--green); }
 
-    section { padding: 38px 0; }
-    .section-card {
-      background: rgba(255,255,255,0.055);
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      padding: 34px;
-      box-shadow: 0 12px 48px rgba(0,0,0,0.14);
-    }
-
-    .paper {
-      background: var(--paper);
-      color: var(--dark-text);
-      border-color: rgba(20,20,20,0.12);
-    }
+    section { padding: 38px 0; scroll-margin-top: 90px; }
+    .section-card { background: rgba(255,255,255,0.055); border: 1px solid var(--line); border-radius: 30px; padding: 34px; box-shadow: 0 12px 48px rgba(0,0,0,0.14); }
+    .paper { background: var(--paper); color: var(--dark-text); border-color: rgba(20,20,20,0.12); }
     .paper .muted, .paper p.sub { color: #657082; }
 
-    h2 {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      line-height: 1.02;
-      letter-spacing: -0.055em;
-      margin: 0 0 16px;
-    }
-
-    p.sub {
-      color: var(--muted);
-      max-width: 820px;
-      font-size: 1.06rem;
-      margin: 0 0 24px;
-    }
+    h2 { font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.02; letter-spacing: -0.055em; margin: 0 0 16px; }
+    p.sub { color: var(--muted); max-width: 840px; font-size: 1.06rem; margin: 0 0 24px; }
 
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 
-    .mini-card {
-      background: rgba(255,255,255,0.055);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 22px;
-    }
+    .mini-card { background: rgba(255,255,255,0.055); border: 1px solid var(--line); border-radius: 22px; padding: 22px; }
     .paper .mini-card { background: #fffaf2; border-color: #dcccb6; }
-
     .mini-card h3 { margin: 0 0 8px; font-size: 1.1rem; }
     .mini-card p { margin: 0; color: var(--muted); }
     .paper .mini-card p { color: #657082; }
 
     .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
     .tag {
+      display: inline-flex;
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.055);
       border-radius: 999px;
       padding: 7px 10px;
       font-size: 0.88rem;
       color: var(--muted);
-    }
-    .paper .tag { background: var(--paper-soft); color: #3f4856; border-color: #dcccb6; }
-
-    .profile-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      margin-bottom: 20px;
-    }
-
-    .contact-pills { display: flex; flex-wrap: wrap; gap: 10px; }
-    .contact-pills a, .contact-pills span {
-      background: #fffaf2;
-      border: 1px solid #dcccb6;
-      border-radius: 999px;
-      padding: 9px 12px;
       text-decoration: none;
-      color: #3f4856;
-      font-size: 0.92rem;
+      transition: transform 150ms ease, background 150ms ease;
     }
+    .tag:hover { transform: translateY(-1px); background: rgba(240,184,108,0.12); color: var(--ink); }
+    .paper .tag { background: var(--paper-soft); color: #3f4856; border-color: #dcccb6; }
+    .paper .tag:hover { background: #e3c79d; color: #1f2933; }
+
+    .profile-header { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 20px; }
+    .contact-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .contact-pills a, .contact-pills span { background: #fffaf2; border: 1px solid #dcccb6; border-radius: 999px; padding: 9px 12px; text-decoration: none; color: #3f4856; font-size: 0.92rem; }
 
     .timeline { display: grid; gap: 16px; }
-    .role {
-      border-left: 4px solid var(--accent);
-      padding-left: 16px;
-    }
-    .role h3 { margin: 0; }
-    .role .meta { color: #657082; margin: 4px 0 8px; }
+    .role { border-left: 4px solid var(--accent); padding: 18px 18px 18px 20px; background: #fffaf2; border-radius: 18px; }
+    .role h3 { margin: 0; font-size: 1.15rem; }
+    .role .meta { color: #657082; margin: 4px 0 8px; font-weight: 600; }
+    .role .applied { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    .role .applied span { border: 1px solid #dcccb6; background: var(--paper-soft); color: #3f4856; border-radius: 999px; padding: 5px 9px; font-size: 0.82rem; }
     ul { margin: 10px 0 0 20px; padding: 0; }
     li { margin-bottom: 6px; }
 
-    .architecture-list {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 18px;
-    }
-    .arch-item {
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.045);
-      border-radius: 18px;
-      padding: 14px;
-      color: var(--muted);
-    }
+    .architecture-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 18px; }
+    .arch-item { border: 1px solid var(--line); background: rgba(255,255,255,0.045); border-radius: 18px; padding: 14px; color: var(--muted); }
     .arch-item strong { color: var(--ink); display: block; margin-bottom: 4px; }
 
-    footer {
-      padding: 50px 0 70px;
-      color: var(--muted);
-      text-align: center;
-      font-size: 0.92rem;
-    }
+    .proof-map { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 18px; }
+    .proof-card { border: 1px solid var(--line); border-radius: 18px; padding: 16px; background: rgba(255,255,255,0.045); }
+    .proof-card strong { display: block; color: var(--ink); margin-bottom: 5px; }
+    .proof-card a { color: var(--accent-bright); text-decoration: none; font-weight: 700; }
+
+    footer { padding: 50px 0 70px; color: var(--muted); text-align: center; font-size: 0.92rem; }
 
     @media (max-width: 900px) {
-      .hero-grid, .grid-2, .grid-3, .architecture-list { grid-template-columns: 1fr; }
+      .hero-grid, .grid-2, .grid-3, .architecture-list, .proof-map { grid-template-columns: 1fr; }
       .nav-inner { align-items: flex-start; flex-direction: column; padding: 16px 0; }
       .hero { padding-top: 52px; }
       .rule-stack { grid-template-columns: 1fr; }
@@ -303,6 +184,7 @@
       <div class="nav-links">
         <a href="#mission">Mission</a>
         <a href="#michael">Michael</a>
+        <a href="#experience">Experience</a>
         <a href="#caos">CAOS</a>
         <a href="#care">CAOS Care</a>
         <a href="#resume">Resume</a>
@@ -325,7 +207,7 @@
           </div>
           <div class="actions">
             <a class="button" href="#mission">Explore the Mission</a>
-            <a class="button secondary" href="#resume">Resume / Experience</a>
+            <a class="button secondary" href="#experience">Work History</a>
           </div>
         </div>
         <div class="visual-card">
@@ -376,15 +258,131 @@
           <div class="mini-card">
             <h3>Technical & Operational</h3>
             <div class="tags">
-              <span class="tag">Industrial Maintenance</span><span class="tag">Electro-Mechanical Troubleshooting</span><span class="tag">Automotive Diagnostics</span><span class="tag">Fleet Maintenance</span><span class="tag">Building Maintenance</span><span class="tag">Fabrication & Welding</span><span class="tag">Metal / Wood Fabrication</span><span class="tag">Hydraulics & Pneumatics</span><span class="tag">Electrical Diagnostics</span><span class="tag">Preventive Maintenance</span><span class="tag">Root Cause Analysis</span><span class="tag">Blueprint & Schematic Reading</span>
+              <a class="tag" href="#industrial-maintenance">Industrial Maintenance</a><a class="tag" href="#diagnostics-proof">Electro-Mechanical Troubleshooting</a><a class="tag" href="#automotive-proof">Automotive Diagnostics</a><a class="tag" href="#fleet-proof">Fleet Maintenance</a><a class="tag" href="#facilities-proof">Building Maintenance</a><a class="tag" href="#fabrication-proof">Fabrication & Welding</a><a class="tag" href="#fabrication-proof">Metal / Wood Fabrication</a><a class="tag" href="#industrial-maintenance">Hydraulics & Pneumatics</a><a class="tag" href="#diagnostics-proof">Electrical Diagnostics</a><a class="tag" href="#industrial-maintenance">Preventive Maintenance</a><a class="tag" href="#diagnostics-proof">Root Cause Analysis</a><a class="tag" href="#fabrication-proof">Blueprint & Schematic Reading</a>
             </div>
           </div>
           <div class="mini-card">
             <h3>AI & Technology</h3>
             <div class="tags">
-              <span class="tag">AI Workflow Development</span><span class="tag">AI Reasoning Evaluation</span><span class="tag">Human-in-the-Loop AI</span><span class="tag">Prompt Engineering</span><span class="tag">AI-Assisted Documentation</span><span class="tag">Operational AI Applications</span><span class="tag">Contextual Memory Concepts</span><span class="tag">Workflow Governance</span><span class="tag">Voice / Wearable AI</span><span class="tag">AI Output Verification</span><span class="tag">Systems Architecture Concepts</span>
+              <a class="tag" href="#ai-proof">AI Workflow Development</a><a class="tag" href="#ai-proof">AI Reasoning Evaluation</a><a class="tag" href="#ai-proof">Human-in-the-Loop AI</a><a class="tag" href="#ai-proof">Prompt Engineering</a><a class="tag" href="#ai-proof">AI-Assisted Documentation</a><a class="tag" href="#caos">Operational AI Applications</a><a class="tag" href="#caos">Contextual Memory Concepts</a><a class="tag" href="#caos">Workflow Governance</a><a class="tag" href="#care">Voice / Wearable AI</a><a class="tag" href="#ai-proof">AI Output Verification</a><a class="tag" href="#caos">Systems Architecture Concepts</a>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="wrap">
+      <div class="section-card paper">
+        <h2>Work History & Applied Skills</h2>
+        <p class="sub">This section is the proof layer: where the listed skills were applied, how long they were applied, and what type of systems were involved.</p>
+        <div class="timeline">
+          <article class="role" id="facilities-proof">
+            <h3>Facilities Maintenance Technician · Senior Living / Residential Facilities</h3>
+            <div class="meta">Conway, Arkansas · December 2025 – Present</div>
+            <div class="applied"><span>Building Maintenance</span><span>Resident-Facing Operations</span><span>Electrical / Plumbing / Environmental Issues</span><span>Safety Awareness</span></div>
+            <ul>
+              <li>Perform maintenance and operational support within an active senior-care and residential environment.</li>
+              <li>Diagnose and resolve electrical, plumbing, environmental, mechanical, and infrastructure-related issues.</li>
+              <li>Support resident safety, operational continuity, unit readiness, and facility functionality under active occupancy conditions.</li>
+              <li>Apply practical troubleshooting, prioritization, documentation, and communication across resident-impacting work orders.</li>
+              <li>Current AI direction connects this environment to CAOS Care: reminders, alerts, staff workflows, care documentation, and wearable or voice-first support.</li>
+            </ul>
+          </article>
+
+          <article class="role" id="industrial-maintenance">
+            <h3>Industrial Maintenance Technician · Vestis</h3>
+            <div class="meta">Little Rock, Arkansas · February 2024 – Present</div>
+            <div class="applied"><span>Industrial Maintenance</span><span>Preventive Maintenance</span><span>Electro-Mechanical Repair</span><span>Hydraulics / Pneumatics</span></div>
+            <ul>
+              <li>Install, maintain, troubleshoot, and repair industrial and manufacturing equipment.</li>
+              <li>Perform preventive maintenance and diagnostics on electro-mechanical production systems.</li>
+              <li>Troubleshoot electrical, pneumatic, hydraulic, and mechanical failures to support production uptime.</li>
+              <li>Use diagnostic thinking and maintenance documentation to identify root-cause issues and restore equipment reliability.</li>
+            </ul>
+          </article>
+
+          <article class="role" id="automotive-proof">
+            <h3>Automotive Mechanic / Technician · Manheim Auto Auctions</h3>
+            <div class="meta">Conway, Arkansas · November 2023 – February 2024</div>
+            <div class="applied"><span>Automotive Diagnostics</span><span>High-Volume Inspection</span><span>Factory-Spec Repair</span><span>Computerized Diagnostics</span></div>
+            <ul>
+              <li>Inspected and diagnosed high-volume vehicle inventory for drivability, warning lights, electrical faults, and mechanical issues.</li>
+              <li>Used advanced diagnostic equipment and more than two decades of automotive troubleshooting experience.</li>
+              <li>Applied systems analysis to engine performance, drivability, warning systems, electrical issues, and operational reliability.</li>
+            </ul>
+          </article>
+
+          <article class="role" id="diagnostics-proof">
+            <h3>Mechanic / Diagnostician · First Pull Small Engine Repair</h3>
+            <div class="meta">Conway, Arkansas · May 2015 – January 2024</div>
+            <div class="applied"><span>Electrical Troubleshooting</span><span>Customer Work Orders</span><span>Parts Research</span><span>Computerized Diagnostics</span></div>
+            <ul>
+              <li>Specialized in electrical diagnostics and troubleshooting of small-engine and electro-mechanical equipment.</li>
+              <li>Managed parts pricing, customer work orders, repair communication, and diagnostic fee documentation.</li>
+              <li>Used computerized diagnostic tools to identify failure points and determine repair paths.</li>
+              <li>Translated technical problems into clear customer-facing repair plans and completion updates.</li>
+            </ul>
+          </article>
+
+          <article class="role">
+            <h3>Industrial Maintenance Technician · Virco Manufacturing</h3>
+            <div class="meta">Conway, Arkansas · March 2019 – November 2023</div>
+            <div class="applied"><span>Manufacturing Maintenance</span><span>Calibration</span><span>Mechanical Systems</span><span>Electrical / Pneumatic / Hydraulic Troubleshooting</span></div>
+            <ul>
+              <li>Maintained and repaired industrial manufacturing machinery and production systems.</li>
+              <li>Performed preventive maintenance, diagnostics, calibration, and repair activities.</li>
+              <li>Troubleshot electrical, electronic, pneumatic, hydraulic, and mechanical systems to maintain operational continuity.</li>
+            </ul>
+          </article>
+
+          <article class="role">
+            <h3>Industrial Maintenance Tech II · De Wafelbakkers</h3>
+            <div class="meta">North Little Rock, Arkansas · May 2015 – March 2019</div>
+            <div class="applied"><span>Lead Forklift Maintenance</span><span>High-Speed Machinery</span><span>DC / Single-Phase / Three-Phase</span><span>Reliability Team Support</span></div>
+            <ul>
+              <li>Served as lead mechanic for forklift maintenance and repair operations.</li>
+              <li>Troubleshot high-speed industrial machinery, DC systems, single-phase systems, and three-phase systems.</li>
+              <li>Worked with reliability, operations, engineering, and maintenance teams to support uptime and preventive maintenance execution.</li>
+              <li>Supported asset troubleshooting, work-order completion, and facility maintenance needs in a production environment.</li>
+            </ul>
+          </article>
+
+          <article class="role" id="fleet-proof">
+            <h3>Head of Fleet Maintenance · Conway Yellow Taxicab Service</h3>
+            <div class="meta">Conway, Arkansas · June 2008 – May 2015</div>
+            <div class="applied"><span>Fleet Maintenance</span><span>Vehicle Rebuilds</span><span>Two-Way Communication Systems</span><span>Maintenance Records</span></div>
+            <ul>
+              <li>Managed maintenance operations for an active commercial vehicle fleet.</li>
+              <li>Performed repairs ranging from routine service and oil changes to complete teardowns and rebuilds.</li>
+              <li>Diagnosed and repaired mechanical and electrical systems across multiple vehicle platforms.</li>
+              <li>Installed, tuned, maintained, and repaired two-way communication systems for office and vehicle operations.</li>
+              <li>Maintained written and computerized records for repairs, installs, equipment, shop, office, and fleet operations.</li>
+            </ul>
+          </article>
+
+          <article class="role" id="fabrication-proof">
+            <h3>Production Manager · All In One Remodels</h3>
+            <div class="meta">Conway, Arkansas · December 2005 – August 2008</div>
+            <div class="applied"><span>Construction</span><span>Remodeling</span><span>Scheduling</span><span>Budget / Staff Coordination</span><span>Fabrication Background</span></div>
+            <ul>
+              <li>Managed production operations, scheduling, staffing, workflow coordination, and project execution.</li>
+              <li>Supported remodeling and construction operations, estimating, process improvement, and organizational efficiency.</li>
+              <li>Applied practical build/repair judgment across construction, material use, fabrication, and field problem solving.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai-proof" class="wrap">
+      <div class="section-card">
+        <h2>AI Work: Applied Systems Thinking</h2>
+        <p class="sub">The AI work is presented as concept, prototype, and active development direction — not as inflated production claims.</p>
+        <div class="proof-map">
+          <div class="proof-card"><strong>AI Workflow Development</strong>Using AI to structure maintenance planning, senior-care workflows, task lists, documentation, troubleshooting, and operational decision support.</div>
+          <div class="proof-card"><strong>AI Reasoning Evaluation</strong>Reviewing AI outputs for factual accuracy, logic, operational realism, safety, and whether recommendations make sense in physical-world systems.</div>
+          <div class="proof-card"><strong>Human-in-the-Loop Operations</strong>Designing workflows where AI assists, routes, documents, and recommends while humans retain authority and accountability.</div>
+          <div class="proof-card"><strong>Technical Portfolio</strong>This site is part of the proof: a live, public, evolving resume and systems portfolio connecting background, mission, and project architecture.</div>
         </div>
       </div>
     </section>
