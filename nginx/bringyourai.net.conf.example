@@ -1,0 +1,44 @@
+# Example nginx configuration for BringYourAI.net static deployment.
+#
+# Site purpose:
+# - Michael Chambers' live resume / AI systems portfolio.
+# - Static demonstration of the broader Bring Your AI concept with Aria on the resume.
+# - No backend application or live Aria chat is configured here.
+#
+# Preferred server root: /srv/www/bringyourai.net
+# Copy to: /etc/nginx/sites-available/bringyourai.net
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name bringyourai.net www.bringyourai.net;
+
+    root /srv/www/bringyourai.net;
+    index index.html;
+
+    access_log /var/log/nginx/bringyourai.net.access.log;
+    error_log /var/log/nginx/bringyourai.net.error.log;
+
+    # Static pages only. Do not proxy to a backend from this config.
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # Cache static assets when asset directories are added later.
+    location ~* \.(?:css|js|mjs|png|jpg|jpeg|gif|webp|svg|ico|woff2?)$ {
+        try_files $uri =404;
+        expires 30d;
+        add_header Cache-Control "public, max-age=2592000";
+    }
+
+    # Do not serve hidden files such as .git, .env, or editor metadata.
+    location ~ /\. {
+        deny all;
+    }
+
+    # Keep common private/config file types out of public responses.
+    location ~* \.(?:env|ini|log|sql|bak|old|orig|swp)$ {
+        deny all;
+    }
+}
