@@ -252,6 +252,9 @@
       box-shadow: 0 0 12px rgba(155,214,170,0.7);
     }
 
+    .caos-emblem.loading { color: var(--accent-bright); }
+    .caos-emblem.loading::before { background: var(--accent-bright); box-shadow: 0 0 12px rgba(240,184,108,0.7); }
+
     .aria-close {
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.055);
@@ -290,6 +293,8 @@
       border-bottom-left-radius: 6px;
     }
 
+    .aria-message.loading { color: #657082; font-style: italic; }
+
     .aria-message.visitor {
       justify-self: end;
       border: 1px solid rgba(197,138,74,0.42);
@@ -315,6 +320,8 @@
       font: inherit;
       font-size: 0.84rem;
     }
+
+    .aria-quick button:disabled { opacity: 0.62; cursor: not-allowed; }
 
     .aria-demo-note {
       border-top: 1px solid var(--line);
@@ -635,11 +642,11 @@
             <span>Michael’s AI collaboration layer</span>
           </div>
         </div>
-        <span class="caos-emblem">Powered by CAOS</span>
+        <span class="caos-emblem" id="aria-status">Live prototype</span>
         <button class="aria-close" type="button" aria-label="Close Aria panel">×</button>
       </div>
       <div class="aria-messages" id="aria-messages">
-        <div class="aria-message aria">Hi. I’m Aria — Michael’s AI collaboration layer. I can walk you through his background, projects, CAOS, CAOS Care, operational systems experience, and AI workflow concepts. Ask naturally.</div>
+        <div class="aria-message aria">Hi. I’m Aria — Michael’s public AI portfolio guide. I can walk you through his background, projects, CAOS, CAOS Care, operational systems experience, and AI workflow concepts using approved public context only.</div>
       </div>
       <div class="aria-quick" aria-label="Aria guided prompts">
         <button type="button" data-topic="background">Michael’s background</button>
@@ -648,7 +655,7 @@
         <button type="button" data-topic="projects">Projects</button>
         <button type="button" data-topic="operational">Operational AI</button>
       </div>
-      <div class="aria-demo-note">Static portfolio guide only — no backend, live model call, API key, or private data.</div>
+      <div class="aria-demo-note">Live prototype: requests go to the site backend with approved public context only. No private memory, analytics, hidden tracking, auth, or database is enabled.</div>
     </section>
     <button class="aria-orb" id="aria-toggle" type="button" aria-expanded="false" aria-controls="aria-panel">
       <span class="aria-mark" aria-hidden="true">A</span>
@@ -668,28 +675,16 @@
     const ariaToggle = document.getElementById('aria-toggle');
     const ariaClose = document.querySelector('.aria-close');
     const ariaMessages = document.getElementById('aria-messages');
+    const ariaStatus = document.getElementById('aria-status');
+    const ariaQuickButtons = document.querySelectorAll('.aria-quick button');
+    let ariaWaiting = false;
 
-    const ariaReplies = {
-      background: {
-        prompt: "Michael’s background",
-        reply: "Michael Chambers brings 20+ years across industrial maintenance, automotive diagnostics, fleet maintenance, fabrication, construction, facilities operations, and electro-mechanical troubleshooting. This portfolio connects that hands-on systems background to AI operations, workflow design, and human-in-the-loop evaluation."
-      },
-      caos: {
-        prompt: "CAOS",
-        reply: "CAOS is Michael’s governed AI operating-layer concept: memory-aware, tool-connected, workflow-driven AI with visible receipts, observability, model routing, explicit learning, and user-defined boundaries."
-      },
-      care: {
-        prompt: "CAOS Care",
-        reply: "CAOS Care is the senior-care application layer concept. It focuses on resident support, staff workflows, reminders, alerts, documentation support, and voice or wearable interfaces under human supervision — not autonomous medical decision-making."
-      },
-      projects: {
-        prompt: "Projects",
-        reply: "The public ecosystem is framed in layers: Bring Your AI as the mission, CAOS as the platform concept, and CAOS Care as a practical application layer for senior-care and operational support workflows."
-      },
-      operational: {
-        prompt: "Operational AI",
-        reply: "Operational AI here means practical systems that help with real tasks: maintenance planning, documentation, troubleshooting, reminders, care workflows, task visibility, reasoning checks, and human-governed decision support."
-      }
+    const ariaPrompts = {
+      background: "Tell me about Michael's work history.",
+      caos: "What is CAOS?",
+      care: "What is CAOS Care?",
+      projects: "What public projects are part of BringYourAI?",
+      operational: "What kind of AI work is Michael focused on?"
     };
 
     function setAriaOpen(isOpen) {
@@ -697,24 +692,55 @@
       ariaToggle.setAttribute('aria-expanded', String(isOpen));
     }
 
-    function addAriaMessage(text, who) {
+    function setAriaWaiting(isWaiting) {
+      ariaWaiting = isWaiting;
+      ariaQuickButtons.forEach(button => { button.disabled = isWaiting; });
+      ariaStatus.textContent = isWaiting ? 'Thinking…' : 'Live prototype';
+      ariaStatus.classList.toggle('loading', isWaiting);
+    }
+
+    function addAriaMessage(text, who, extraClass = '') {
       const message = document.createElement('div');
-      message.className = `aria-message ${who}`;
+      message.className = `aria-message ${who}${extraClass ? ` ${extraClass}` : ''}`;
       message.textContent = text;
       ariaMessages.appendChild(message);
       ariaMessages.scrollTop = ariaMessages.scrollHeight;
+      return message;
+    }
+
+    async function askAria(prompt) {
+      if (!prompt || ariaWaiting) return;
+      addAriaMessage(prompt, 'visitor');
+      const loadingMessage = addAriaMessage('Aria is checking the approved public context…', 'aria', 'loading');
+      setAriaWaiting(true);
+
+      try {
+        const response = await fetch('/api/aria-chat', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ message: prompt })
+        });
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          throw new Error(data.error || 'Aria is temporarily unavailable.');
+        }
+
+        loadingMessage.className = 'aria-message aria';
+        loadingMessage.textContent = data.reply || 'Aria did not return a reply. Please try again.';
+      } catch (error) {
+        loadingMessage.className = 'aria-message aria';
+        loadingMessage.textContent = `${error.message} This public prototype does not use private memory, tracking, or hidden conversation retrieval.`;
+      } finally {
+        setAriaWaiting(false);
+      }
     }
 
     ariaToggle.addEventListener('click', () => setAriaOpen(!ariaPanel.classList.contains('open')));
     ariaClose.addEventListener('click', () => setAriaOpen(false));
 
-    document.querySelectorAll('.aria-quick button').forEach(button => {
-      button.addEventListener('click', () => {
-        const item = ariaReplies[button.dataset.topic];
-        if (!item) return;
-        addAriaMessage(item.prompt, 'visitor');
-        window.setTimeout(() => addAriaMessage(item.reply, 'aria'), 180);
-      });
+    ariaQuickButtons.forEach(button => {
+      button.addEventListener('click', () => askAria(ariaPrompts[button.dataset.topic]));
     });
 
     document.addEventListener('keydown', event => {

@@ -10,6 +10,8 @@ BringYourAI.net is Michael Chambers' live resume and AI systems portfolio. The r
 - **Backend endpoint:** `POST /api/aria-chat`.
 - **Runtime secrets:** `OPENAI_API_KEY` must exist only in the server environment.
 - **No persistent services:** no database, auth service, analytics, visitor memory, admin panel, or autonomous action system is required for this prototype.
+- **Abuse protection:** `/api/aria-chat` has a simple in-memory per-IP rate limit for prototype abuse control. It is not persistent visitor memory.
+- **Public serving scope:** the Node server serves only `index.html`, `aria.html`, `projects.html`, and files placed under public asset directories such as `assets/`, `images/`, `css/`, or `js/`. Repository docs, deployment notes, source modules, dotfiles, and private/config-style files are not intended website content.
 - **Private data:** do not place secrets, private notes, internal incident history, private conversation logs, or unredacted credentials in the web root.
 
 ## Runtime Configuration
@@ -17,12 +19,14 @@ BringYourAI.net is Michael Chambers' live resume and AI systems portfolio. The r
 Required:
 
 ```bash
+cd /srv/www/bringyourai.net
 export OPENAI_API_KEY="sk-your-openai-api-key"
 ```
 
 Optional:
 
 ```bash
+cd /srv/www/bringyourai.net
 export ARIA_OPENAI_MODEL="gpt-4.1-mini"
 export PORT=3000
 ```
@@ -49,6 +53,7 @@ http://localhost:3000/aria.html
 To verify the endpoint shape without storing data:
 
 ```bash
+cd /srv/www/bringyourai.net
 curl -sS -X POST http://localhost:3000/api/aria-chat \
   -H 'content-type: application/json' \
   -d '{"message":"What is CAOS?"}'
@@ -68,6 +73,7 @@ The server should have:
 Example package installation on Ubuntu/Debian:
 
 ```bash
+cd /srv/www
 sudo apt update
 sudo apt install -y nginx git nodejs npm
 ```
@@ -86,6 +92,7 @@ npm run check
 Set safe read permissions for nginx and keep environment files private:
 
 ```bash
+cd /srv/www/bringyourai.net
 find . -type d -exec chmod 755 {} \;
 find . -type f -exec chmod 644 {} \;
 chmod 600 .env 2>/dev/null || true
@@ -111,6 +118,7 @@ location / {
 After changing nginx:
 
 ```bash
+cd /srv/www/bringyourai.net
 sudo nginx -t
 sudo systemctl reload nginx
 ```

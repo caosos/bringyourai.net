@@ -239,8 +239,10 @@ frontend Aria bubble
 ## What Is Included
 
 - `POST /api/aria-chat` accepting `{ "message": "..." }`.
-- A minimal Node.js server in `server.mjs` that serves the static site and the Aria endpoint.
+- Live Aria calls from both the homepage portfolio bubble and the dedicated `aria.html` page.
+- A minimal Node.js server in `server.mjs` that serves public pages/assets and the Aria endpoint.
 - Approved public context in `src/aria/publicContext.mjs`.
+- Simple in-memory per-IP rate limiting for prototype abuse control; this is not persistent visitor memory.
 - No database, persistent memory, authentication, admin panel, analytics, hidden visitor tracking, private conversation retrieval, or autonomous actions.
 
 ## Safety Boundary
@@ -290,4 +292,4 @@ Safe local check without making an OpenAI call:
 npm run check
 ```
 
-If `OPENAI_API_KEY` is missing, the static site still loads and `/api/aria-chat` returns a graceful configuration error instead of using canned responses or exposing secrets.
+If `OPENAI_API_KEY` is missing, the public pages still load and `/api/aria-chat` returns a graceful configuration error instead of using canned responses or exposing secrets. The Node server intentionally serves only public pages (`index.html`, `aria.html`, `projects.html`) and public asset directories, not repository docs, deployment notes, source modules, dotfiles, or config files.
