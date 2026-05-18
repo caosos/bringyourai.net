@@ -55,9 +55,11 @@
     .agent strong { display: block; }
     .agent span { display: block; color: var(--muted); font-size: .88rem; }
     .status { color: var(--green); font-size: .84rem; border: 1px solid rgba(155,214,170,.35); border-radius: 999px; padding: 5px 9px; }
+    .status.loading { color: var(--accent-bright); border-color: rgba(240,184,108,.38); }
     .messages { padding: 20px; display: grid; gap: 14px; min-height: 420px; }
     .msg { max-width: 86%; padding: 14px 16px; border-radius: 18px; }
     .msg.aria { background: var(--paper); color: var(--dark); border-bottom-left-radius: 6px; }
+    .msg.loading { color: #657082; font-style: italic; }
     .msg.user { justify-self: end; background: rgba(197,138,74,.22); border: 1px solid rgba(197,138,74,.4); border-bottom-right-radius: 6px; }
     .suggestions { display: flex; gap: 8px; flex-wrap: wrap; padding: 0 20px 18px; }
     .suggestions button { border: 1px solid var(--line); background: rgba(255,255,255,.055); color: var(--ink); border-radius: 999px; padding: 8px 10px; cursor: pointer; }
@@ -65,6 +67,7 @@
     .input { border-top: 1px solid var(--line); padding: 14px; display: flex; gap: 10px; background: rgba(255,255,255,.035); }
     input { flex: 1; border: 1px solid var(--line); background: #0b0d12; color: var(--ink); border-radius: 999px; padding: 12px 14px; font: inherit; }
     .send { border: 0; border-radius: 999px; padding: 12px 16px; background: var(--accent); color: #111; font-weight: 850; cursor: pointer; }
+    .send:disabled, input:disabled, .suggestions button:disabled { opacity: .62; cursor: not-allowed; }
     .note { color: var(--muted); font-size: .88rem; padding: 0 20px 18px; }
     footer { color: var(--muted); text-align: center; padding: 30px 0 60px; }
     @media (max-width: 880px) { .grid { grid-template-columns: 1fr; } .nav-inner { flex-direction: column; align-items: flex-start; padding: 16px 0; } }
@@ -108,10 +111,10 @@
               <span>Michael’s AI collaborator</span>
             </div>
           </div>
-          <div class="status">Concept demo</div>
+          <div class="status" id="status">Live prototype</div>
         </div>
         <div class="messages" id="messages">
-          <div class="msg aria">Hi, I’m Aria.<br><br>I’m Michael’s AI collaborator and guide for BringYourAI, powered by CAOS — the Cognitive Adaptive Operating System.<br><br>I can help you explore Michael’s projects, AI concepts, systems ideas, work history, and the mission behind CAOS and BringYourAI.<br><br>I can also answer general questions about technology, life, systems, problem-solving, or whatever else you might need help understanding.</div>
+          <div class="msg aria">Hi, I’m Aria.<br><br>I’m Michael’s AI collaborator and guide for BringYourAI, powered by CAOS — the Cognitive Adaptive Operating System.<br><br>I can help you explore Michael’s projects, AI concepts, systems ideas, work history, and the mission behind CAOS and BringYourAI.<br><br>I can answer from Michael’s approved public portfolio context and general public-safe technology concepts. I do not use private memory, tracking, or hidden visitor history.</div>
         </div>
         <div class="suggestions">
           <button data-q="Tell me about Michael's work history.">Work history</button>
@@ -120,10 +123,10 @@
           <button data-q="What kind of AI work is Michael focused on?">AI focus</button>
         </div>
         <div class="input">
-          <input id="prompt" placeholder="Ask Aria anything..." />
+          <input id="prompt" placeholder="Ask about Michael, CAOS, or operational AI..." />
           <button class="send" id="send">Send</button>
         </div>
-        <div class="note">Live model wiring is intentionally not enabled yet. This is the public chat-interface layer and introduction behavior for the future governed AI backend.</div>
+        <div class="note">Live prototype: messages are sent to the site backend, which injects only approved public context. No memory, database, analytics, tracking, auth, or private conversation retrieval is enabled.</div>
       </section>
     </div>
   </main>
@@ -135,46 +138,74 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    const canned = {
-      "Tell me about Michael's work history.": "Michael has more than 20 years of hands-on systems experience across industrial maintenance, automotive diagnostics, fleet maintenance, fabrication, construction, facilities operations, and electro-mechanical troubleshooting.",
-      "What is CAOS?": "CAOS means Cognitive Adaptive Operating System. It is Michael's governed AI operating-layer concept focused on memory, workflows, tool use, observability, receipts, and human-directed AI collaboration.",
-      "What is BringYourAI?": "BringYourAI is the idea that your AI, memory, workflows, identity, devices, and rules should travel with you instead of staying trapped inside disconnected platforms.",
-      "What kind of AI work is Michael focused on?": "Michael is focused on operational AI: practical systems where AI supports real-world workflows, diagnostics, maintenance, care systems, local workbenches, and human-supervised automation."
-    };
+    const status = document.getElementById('status');
+    const input = document.getElementById('prompt');
+    const send = document.getElementById('send');
+    const suggestionButtons = document.querySelectorAll('.suggestions button');
+    let waiting = false;
 
-    function addMessage(text, who) {
+    function addMessage(text, who, extraClass = '') {
       const messages = document.getElementById('messages');
       const div = document.createElement('div');
-      div.className = `msg ${who}`;
+      div.className = `msg ${who}${extraClass ? ` ${extraClass}` : ''}`;
       div.textContent = text;
       messages.appendChild(div);
       messages.scrollTop = messages.scrollHeight;
+      return div;
     }
 
-    function replyTo(text) {
-      const answer = canned[text] || "This public Aria interface is staged as a concept demo right now. The live governed AI backend will answer that kind of question once it is wired to Michael's approved public context layer.";
-      setTimeout(() => addMessage(answer, 'aria'), 250);
+    function setWaiting(isWaiting) {
+      waiting = isWaiting;
+      input.disabled = isWaiting;
+      send.disabled = isWaiting;
+      suggestionButtons.forEach(button => { button.disabled = isWaiting; });
+      status.textContent = isWaiting ? 'Thinking…' : 'Live prototype';
+      status.classList.toggle('loading', isWaiting);
     }
 
-    document.querySelectorAll('.suggestions button').forEach(button => {
-      button.addEventListener('click', () => {
-        const q = button.dataset.q;
-        addMessage(q, 'user');
-        replyTo(q);
-      });
-    });
+    async function replyTo(text) {
+      const loadingMessage = addMessage('Aria is checking the approved public context…', 'aria', 'loading');
+      setWaiting(true);
 
-    document.getElementById('send').addEventListener('click', () => {
-      const input = document.getElementById('prompt');
-      const text = input.value.trim();
-      if (!text) return;
-      addMessage(text, 'user');
+      try {
+        const response = await fetch('/api/aria-chat', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ message: text })
+        });
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          throw new Error(data.error || 'Aria is temporarily unavailable.');
+        }
+
+        loadingMessage.className = 'msg aria';
+        loadingMessage.textContent = data.reply || 'Aria did not return a reply. Please try again.';
+      } catch (error) {
+        loadingMessage.className = 'msg aria';
+        loadingMessage.textContent = `${error.message} This prototype keeps the public-safe boundary intact: no private memory, tracking, or hidden conversation retrieval is available.`;
+      } finally {
+        setWaiting(false);
+        input.focus();
+      }
+    }
+
+    function submitMessage(text) {
+      const cleanText = text.trim();
+      if (!cleanText || waiting) return;
+      addMessage(cleanText, 'user');
       input.value = '';
-      replyTo(text);
+      replyTo(cleanText);
+    }
+
+    suggestionButtons.forEach(button => {
+      button.addEventListener('click', () => submitMessage(button.dataset.q));
     });
 
-    document.getElementById('prompt').addEventListener('keydown', event => {
-      if (event.key === 'Enter') document.getElementById('send').click();
+    send.addEventListener('click', () => submitMessage(input.value));
+
+    input.addEventListener('keydown', event => {
+      if (event.key === 'Enter') send.click();
     });
   </script>
 </body>
