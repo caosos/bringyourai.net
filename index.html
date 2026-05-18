@@ -167,6 +167,294 @@
     .proof-card strong { display: block; color: var(--ink); margin-bottom: 5px; }
     .proof-card a { color: var(--accent-bright); text-decoration: none; font-weight: 700; }
 
+
+    .systems-showcase { position: relative; }
+    .systems-showcase::before {
+      content: "";
+      position: absolute;
+      inset: -18px 0 auto;
+      height: 620px;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(240,184,108,0.18), transparent 28rem),
+        radial-gradient(circle at 85% 8%, rgba(134,183,255,0.16), transparent 30rem);
+      opacity: 0.9;
+      z-index: -1;
+    }
+
+    .showcase-shell {
+      overflow: hidden;
+      position: relative;
+      padding: 0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025)),
+        #10131a;
+    }
+
+    .showcase-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
+      gap: 28px;
+      align-items: stretch;
+      padding: 36px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(240,184,108,0.12), transparent 42%),
+        radial-gradient(circle at 82% 18%, rgba(134,183,255,0.18), transparent 22rem);
+    }
+
+    .showcase-hero h2 { max-width: 820px; }
+    .showcase-hero p.sub { margin-bottom: 0; }
+
+    .layer-visual {
+      position: relative;
+      min-height: 260px;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 28px;
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(8,10,13,0.92), rgba(25,31,42,0.9)),
+        repeating-linear-gradient(90deg, transparent 0 26px, rgba(255,255,255,0.03) 27px 28px);
+      box-shadow: inset 0 0 90px rgba(134,183,255,0.08), 0 26px 70px rgba(0,0,0,0.28);
+    }
+
+    .layer-visual::before {
+      content: "";
+      position: absolute;
+      inset: 28px;
+      border-radius: 22px;
+      border: 1px solid rgba(240,184,108,0.35);
+      background:
+        linear-gradient(90deg, transparent 49%, rgba(240,184,108,0.22) 50%, transparent 51%),
+        linear-gradient(0deg, transparent 49%, rgba(134,183,255,0.18) 50%, transparent 51%);
+      opacity: 0.85;
+    }
+
+    .layer-node {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      width: 66px;
+      height: 66px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(246,239,227,0.09);
+      color: var(--ink);
+      font-size: 1.45rem;
+      box-shadow: 0 18px 46px rgba(0,0,0,0.28);
+    }
+
+    .layer-node.human { left: 26px; top: 28px; }
+    .layer-node.systems { right: 28px; top: 34px; }
+    .layer-node.sensors { left: 34px; bottom: 34px; }
+    .layer-node.workflow { right: 42px; bottom: 36px; }
+    .layer-core {
+      position: absolute;
+      inset: 50%;
+      translate: -50% -50%;
+      width: 122px;
+      height: 122px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid rgba(240,184,108,0.55);
+      background:
+        radial-gradient(circle, rgba(240,184,108,0.32), rgba(134,183,255,0.10) 58%, rgba(255,255,255,0.04));
+      color: var(--accent-bright);
+      font-weight: 950;
+      letter-spacing: -0.06em;
+      box-shadow: 0 0 56px rgba(240,184,108,0.22);
+    }
+
+    .showcase-principles {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 0 36px 30px;
+      margin-top: -8px;
+    }
+
+    .principle {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.045);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .principle strong { display: block; color: var(--ink); font-size: 0.95rem; margin-bottom: 2px; }
+
+    .industry-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      padding: 0 36px 36px;
+    }
+
+    .industry-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 28px;
+      padding: 20px;
+      background:
+        linear-gradient(160deg, rgba(255,255,255,0.085), rgba(255,255,255,0.028)),
+        #11151d;
+      box-shadow: 0 18px 54px rgba(0,0,0,0.18);
+    }
+
+    .industry-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at var(--glow-x, 18%) 0%, var(--glow, rgba(240,184,108,0.20)), transparent 19rem);
+      pointer-events: none;
+    }
+
+    .industry-card > * { position: relative; }
+    .industry-card:nth-child(even) { --glow-x: 88%; --glow: rgba(134,183,255,0.18); }
+    .industry-card:nth-child(3n) { --glow: rgba(155,214,170,0.16); }
+
+    .concept-art {
+      display: grid;
+      grid-template-columns: 1fr 72px 1fr;
+      gap: 10px;
+      align-items: center;
+      min-height: 118px;
+      margin-bottom: 18px;
+    }
+
+    .scene {
+      min-height: 104px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      padding: 12px;
+      background:
+        linear-gradient(180deg, rgba(8,10,13,0.52), rgba(255,255,255,0.04)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 24px);
+    }
+
+    .scene-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .scene-stack { display: grid; gap: 7px; }
+    .fragment, .caos-step {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 24px;
+      border-radius: 999px;
+      padding: 5px 8px;
+      font-size: 0.78rem;
+      line-height: 1.2;
+    }
+
+    .fragment { background: rgba(255,255,255,0.06); color: #d5c8b7; border: 1px solid rgba(255,255,255,0.08); }
+    .fragment::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: rgba(198,185,168,0.65); }
+    .caos-step { background: rgba(240,184,108,0.12); color: var(--ink); border: 1px solid rgba(240,184,108,0.26); }
+    .caos-step::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px rgba(155,214,170,0.78); }
+
+    .bridge {
+      display: grid;
+      place-items: center;
+      gap: 7px;
+      color: var(--accent-bright);
+      text-align: center;
+      font-weight: 900;
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .bridge-mark {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid rgba(240,184,108,0.48);
+      background: radial-gradient(circle, rgba(240,184,108,0.26), rgba(134,183,255,0.10) 62%, rgba(255,255,255,0.04));
+      box-shadow: 0 0 34px rgba(240,184,108,0.14);
+      animation: breathe 4.5s ease-in-out infinite;
+    }
+
+    .industry-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .industry-title h3 { margin: 0; font-size: 1.28rem; letter-spacing: -0.025em; }
+    .industry-icon { font-size: 1.6rem; filter: drop-shadow(0 6px 16px rgba(0,0,0,0.22)); }
+    .industry-card p { margin: 0; color: var(--muted); }
+    .industry-card .story { margin-bottom: 16px; }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .compare-box {
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 12px;
+      background: rgba(255,255,255,0.043);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .compare-box strong { display: block; color: var(--ink); margin-bottom: 4px; }
+    .compare-box.caos { border-color: rgba(240,184,108,0.28); background: rgba(240,184,108,0.08); }
+
+    .guidance-note {
+      border-left: 3px solid var(--accent-bright);
+      padding: 10px 0 10px 12px;
+      color: #e9dcc9;
+      font-size: 0.93rem;
+      background: linear-gradient(90deg, rgba(240,184,108,0.07), transparent);
+      border-radius: 8px;
+    }
+
+    .capability-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .capability-strip span {
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.045);
+      border-radius: 999px;
+      padding: 6px 8px;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 28px rgba(240,184,108,0.12); }
+      50% { transform: scale(1.05); box-shadow: 0 0 42px rgba(134,183,255,0.20); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bridge-mark { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+
     footer { padding: 50px 0 70px; color: var(--muted); text-align: center; font-size: 0.92rem; }
 
 
@@ -353,10 +641,14 @@
     .aria-orb-copy span { color: var(--muted); font-size: 0.76rem; }
 
     @media (max-width: 900px) {
-      .hero-grid, .grid-2, .grid-3, .architecture-list, .proof-map { grid-template-columns: 1fr; }
+      .hero-grid, .grid-2, .grid-3, .architecture-list, .proof-map, .showcase-hero, .showcase-principles, .industry-grid, .comparison { grid-template-columns: 1fr; }
       .nav-inner { align-items: flex-start; flex-direction: column; padding: 16px 0; }
       .hero { padding-top: 52px; }
       .rule-stack { grid-template-columns: 1fr; }
+      .showcase-hero, .industry-grid { padding-left: 18px; padding-right: 18px; }
+      .showcase-principles { padding: 0 18px 22px; }
+      .concept-art { grid-template-columns: 1fr; }
+      .bridge { grid-template-columns: 58px 1fr; justify-content: start; text-align: left; }
 
       .aria-launcher { right: 14px; bottom: 14px; }
       .aria-panel { width: calc(100vw - 28px); max-height: calc(100vh - 96px); border-radius: 24px; }
@@ -375,6 +667,7 @@
         <a href="#mission">Mission</a>
         <a href="#michael">Michael</a>
         <a href="#experience">Experience</a>
+        <a href="#systems-showcase">Industry Showcase</a>
         <a href="#caos">CAOS</a>
         <a href="#care">CAOS Care</a>
         <a href="#resume">Resume</a>
@@ -397,6 +690,7 @@
           </div>
           <div class="actions">
             <a class="button" href="#mission">Explore the Mission</a>
+            <a class="button secondary" href="#systems-showcase">Industry Showcase</a>
             <a class="button secondary" href="#experience">Work History</a>
           </div>
         </div>
@@ -423,6 +717,165 @@
           <div class="mini-card"><h3>User-Owned Context</h3><p>Memory should be explicit, inspectable, portable, correctable, and governed by the user.</p></div>
           <div class="mini-card"><h3>Operational Workflows</h3><p>AI should help with real tasks: maintenance, documentation, reminders, care workflows, planning, and technical reasoning.</p></div>
           <div class="mini-card"><h3>Device-Aware AI</h3><p>Voice, wearables, tablets, sensors, and building systems can become part of a human-centered assistance layer.</p></div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="systems-showcase" class="wrap systems-showcase">
+      <div class="section-card showcase-shell">
+        <div class="showcase-hero">
+          <div>
+            <div class="eyebrow">CAOS industry showcase · governed operational intelligence layer</div>
+            <h2>One trusted AI layer over the systems people already run.</h2>
+            <p class="sub">CAOS is presented here as a concept and prototype direction: not a single app, not a replacement for professionals, and not a claim of live deployments. The showcase visualizes how governed AI guidance could coordinate existing tools, sensors, records, alerts, work orders, and human decisions through one operational interface.</p>
+          </div>
+          <div class="layer-visual" aria-label="Concept diagram showing CAOS coordinating humans, systems, sensors, and workflows">
+            <div class="layer-node human" aria-hidden="true">👤</div>
+            <div class="layer-node systems" aria-hidden="true">▦</div>
+            <div class="layer-core">CAOS</div>
+            <div class="layer-node sensors" aria-hidden="true">◉</div>
+            <div class="layer-node workflow" aria-hidden="true">↳</div>
+          </div>
+        </div>
+
+        <div class="showcase-principles">
+          <div class="principle"><strong>Human-in-the-loop</strong>AI recommends, explains, routes, and documents while people remain accountable.</div>
+          <div class="principle"><strong>Interoperable by design</strong>Existing infrastructure stays useful instead of being replaced by another silo.</div>
+          <div class="principle"><strong>Operational awareness</strong>Systems can report state, failures, context, and next steps in plain language.</div>
+          <div class="principle"><strong>Offline-capable direction</strong>Local procedures, cached context, and field guidance can remain available during outages.</div>
+        </div>
+
+        <div class="industry-grid">
+          <article class="industry-card">
+            <div class="concept-art">
+              <div class="scene"><div class="scene-label"><span>Today</span><span>fragmented</span></div><div class="scene-stack"><span class="fragment">IEP notes</span><span class="fragment">classroom tools</span><span class="fragment">staff handoffs</span></div></div>
+              <div class="bridge"><span class="bridge-mark">AI</span><span>guided layer</span></div>
+              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>coordinated</span></div><div class="scene-stack"><span class="caos-step">student context</span><span class="caos-step">teacher prompts</span><span class="caos-step">support workflow</span></div></div>
+            </div>
+            <div class="industry-title"><h3>Education</h3><span class="industry-icon" aria-hidden="true">🎓</span></div>
+            <p class="story">A teacher should not have to hunt through disconnected notes, platforms, and emails to understand what a student needs in the moment.</p>
+            <div class="comparison"><div class="compare-box"><strong>Today</strong>Learning plans, behavior notes, assignments, and family communication often live in separate systems.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A governed layer can summarize permitted context, suggest next steps, and keep humans in control of instruction and care.</div></div>
+            <div class="guidance-note">AI assists educators with reminders, accommodations, workflow awareness, and documentation support — not student replacement or automated judgment.</div>
+            <div class="capability-strip"><span>guided workflows</span><span>central visibility</span><span>offline playbooks</span><span>human approval</span></div>
+          </article>
+
+          <article class="industry-card">
+            <div class="concept-art">
+              <div class="scene"><div class="scene-label"><span>Today</span><span>reactive</span></div><div class="scene-stack"><span class="fragment">resident call</span><span class="fragment">shift notes</span><span class="fragment">device alert</span></div></div>
+              <div class="bridge"><span class="bridge-mark">AI</span><span>care support</span></div>
+              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>aware</span></div><div class="scene-stack"><span class="caos-step">resident needs</span><span class="caos-step">staff routing</span><span class="caos-step">family-safe updates</span></div></div>
+            </div>
+            <div class="industry-title"><h3>Healthcare / Senior Care</h3><span class="industry-icon" aria-hidden="true">🫶</span></div>
+            <p class="story">Care teams need fast context, compassionate reminders, and clean handoffs without turning AI into a clinician or caregiver replacement.</p>
+            <div class="comparison"><div class="compare-box"><strong>Today</strong>Reminders, call lights, work orders, notes, and family communication can be operationally scattered.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A supervised layer can help route tasks, surface relevant context, and support resident-facing assistance within clear boundaries.</div></div>
+            <div class="guidance-note">The framing is assistive and public-safe: CAOS Care supports staff and residents, while medical decisions remain with qualified humans and regulated systems.</div>
+            <div class="capability-strip"><span>staff support</span><span>voice-first help</span><span>alert triage</span><span>human supervision</span></div>
+          </article>
+
+          <article class="industry-card">
+            <div class="concept-art">
+              <div class="scene"><div class="scene-label"><span>Today</span><span>high pressure</span></div><div class="scene-stack"><span class="fragment">caller details</span><span class="fragment">maps</span><span class="fragment">radio traffic</span></div></div>
+              <div class="bridge"><span class="bridge-mark">AI</span><span>decision support</span></div>
+              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>structured</span></div><div class="scene-stack"><span class="caos-step">checklists</span><span class="caos-step">resource view</span><span class="caos-step">handoff notes</span></div></div>
+            </div>
+            <div class="industry-title"><h3>Emergency Response / 911</h3><span class="industry-icon" aria-hidden="true">🚨</span></div>
+            <p class="story">Dispatchers and responders need calm, structured support when every second matters and information arrives incomplete.</p>
+            <div class="comparison"><div class="compare-box"><strong>Today</strong>Operators coordinate calls, maps, unit status, procedures, and agency communication under extreme load.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A governed layer could provide checklist guidance, summarize approved facts, flag missing information, and preserve command authority.</div></div>
+            <div class="guidance-note">AI supports situational awareness and troubleshooting flow; it does not replace dispatchers, incident command, or emergency protocols.</div>
+            <div class="capability-strip"><span>operational awareness</span><span>guided checklists</span><span>offline procedures</span><span>accountable handoff</span></div>
+          </article>
+
+          <article class="industry-card">
+            <div class="concept-art">
+              <div class="scene"><div class="scene-label"><span>Today</span><span>hidden state</span></div><div class="scene-stack"><span class="fragment">HVAC panel</span><span class="fragment">work orders</span><span class="fragment">vendor manuals</span></div></div>
+              <div class="bridge"><span class="bridge-mark">AI</span><span>building guide</span></div>
+              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>self-reporting</span></div><div class="scene-stack"><span class="caos-step">fault context</span><span class="caos-step">service steps</span><span class="caos-step">parts path</span></div></div>
+            </div>
+            <div class="industry-title"><h3>Building Operations</h3><span class="industry-icon" aria-hidden="true">🏢</span></div>
+            <p class="story">Buildings should be able to tell humans what is failing, where to look, what changed, and what safe next step to take.</p>
+            <div class="comparison"><div class="compare-box"><strong>Today</strong>Facilities teams interpret alarms, tenant reports, control panels, paper manuals, and incomplete maintenance histories.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A building-aware layer can combine sensor state, work order history, manuals, and technician guidance into one view.</div></div>
+            <div class="guidance-note">CAOS turns infrastructure into a teaching system: the building helps technicians service it while people decide what action is safe.</div>
+            <div class="capability-strip"><span>smart monitoring</span><span>central visibility</span><span>guided troubleshooting</span><span>local fallback</span></div>
+          </article>
+
+          <article class="industry-card">
+            <div class="concept-art">
+              <div class="scene"><div class="scene-label"><span>Today</span><span>manual search</span></div><div class="scene-stack"><span class="fragment">PLC alarm</span><span class="fragment">maintenance log</span><span class="fragment">parts shelf</span></div></div>
+              <div class="bridge"><span class="bridge-mark">AI</span><span>root cause</span></div>
+              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>guided repair</span></div><div class="scene-stack"><span class="caos-step">symptom map</span><span class="caos-step">lockout prompt</span><span class="caos-step">repair record</span></div></div>
+            </div>
+            <div class="industry-title"><h3>Industrial Maintenance</h3><span class="industry-icon" aria-hidden="true">🛠️</span></div>
+            <p class="story">Technicians need the machine history, symptoms, safety reminders, and likely diagnostic path before downtime spreads.</p>
+            <div class="comparison"><div class="compare-box"><strong>Today</strong>Diagnostics depend on experience, tribal knowledge, scattered manuals, alarm codes, and handwritten repair notes.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A governed layer can organize troubleshooting steps, attach receipts, and keep maintenance knowledge available to the next technician.</div></div>
+            <div class="guidance-note">AI assists root-cause thinking and documentation while technicians remain responsible for physical safety and final repair decisions.</div>
+            <div class="capability-strip"><span>failure reporting</span><span>guided troubleshooting</span><span>receipts</span><span>knowledge capture</span></div>
+          </article>
+
+          <article class="industry-card">
+            <div class="concept-art">
+              <div class="scene"><div class="scene-label"><span>Today</span><span>siloed line</span></div><div class="scene-stack"><span class="fragment">quality station</span><span class="fragment">shift target</span><span class="fragment">machine alarms</span></div></div>
+              <div class="bridge"><span class="bridge-mark">AI</span><span>flow view</span></div>
+              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>coordinated</span></div><div class="scene-stack"><span class="caos-step">line context</span><span class="caos-step">operator assist</span><span class="caos-step">quality notes</span></div></div>
+            </div>
+            <div class="industry-title"><h3>Manufacturing</h3><span class="industry-icon" aria-hidden="true">🏭</span></div>
+            <p class="story">Production teams need visibility across machines, quality checks, shift communication, and maintenance impact.</p>
+            <div class="comparison"><div class="compare-box"><strong>Today</strong>Operations, quality, maintenance, and scheduling often see different slices of the same production reality.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A workflow-aware layer can connect signals, explain constraints, and guide human-directed automation across the line.</div></div>
+            <div class="guidance-note">The goal is better operator support: AI helps people understand flow, exceptions, and safe options instead of hiding decisions.</div>
+            <div class="capability-strip"><span>line awareness</span><span>smart alerts</span><span>workflow routing</span><span>human-directed automation</span></div>
+          </article>
+
+          <article class="industry-card">
+            <div class="concept-art">
+              <div class="scene"><div class="scene-label"><span>Today</span><span>alert noise</span></div><div class="scene-stack"><span class="fragment">panel event</span><span class="fragment">camera note</span><span class="fragment">inspection log</span></div></div>
+              <div class="bridge"><span class="bridge-mark">AI</span><span>safety layer</span></div>
+              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>prioritized</span></div><div class="scene-stack"><span class="caos-step">event timeline</span><span class="caos-step">response checklist</span><span class="caos-step">compliance record</span></div></div>
+            </div>
+            <div class="industry-title"><h3>Security / Fire / Safety Systems</h3><span class="industry-icon" aria-hidden="true">🛡️</span></div>
+            <p class="story">Safety systems should surface what matters, explain the response path, and help humans document what happened.</p>
+            <div class="comparison"><div class="compare-box"><strong>Today</strong>Panels, inspections, cameras, access events, and incident notes can create more noise than operational clarity.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A governed interface can organize alerts, provide response checklists, and centralize visibility without claiming autonomous enforcement.</div></div>
+            <div class="guidance-note">AI supports monitoring and response coordination while trained people and approved procedures control escalation.</div>
+            <div class="capability-strip"><span>smart monitoring</span><span>alert triage</span><span>response guidance</span><span>audit trail</span></div>
+          </article>
+
+          <article class="industry-card">
+            <div class="concept-art">
+              <div class="scene"><div class="scene-label"><span>Today</span><span>moving parts</span></div><div class="scene-stack"><span class="fragment">driver status</span><span class="fragment">vehicle fault</span><span class="fragment">route change</span></div></div>
+              <div class="bridge"><span class="bridge-mark">AI</span><span>fleet brain</span></div>
+              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>aware fleet</span></div><div class="scene-stack"><span class="caos-step">maintenance risk</span><span class="caos-step">dispatch context</span><span class="caos-step">repair workflow</span></div></div>
+            </div>
+            <div class="industry-title"><h3>Logistics / Fleet</h3><span class="industry-icon" aria-hidden="true">🚚</span></div>
+            <p class="story">Fleet operations need vehicle health, dispatch context, driver communication, and maintenance planning in the same operating picture.</p>
+            <div class="comparison"><div class="compare-box"><strong>Today</strong>Route tools, repair records, driver notes, fuel data, and warning lights may not meet until something fails.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A coordinated layer can flag operational risk, guide troubleshooting, and connect repairs back to scheduling decisions.</div></div>
+            <div class="guidance-note">AI helps humans prioritize service and communication; it does not become the driver, dispatcher, or mechanic.</div>
+            <div class="capability-strip"><span>fleet visibility</span><span>predictive awareness</span><span>repair guidance</span><span>offline procedures</span></div>
+          </article>
+
+          <article class="industry-card">
+            <div class="concept-art">
+              <div class="scene"><div class="scene-label"><span>Today</span><span>guest impact</span></div><div class="scene-stack"><span class="fragment">room issue</span><span class="fragment">housekeeping</span><span class="fragment">maintenance ticket</span></div></div>
+              <div class="bridge"><span class="bridge-mark">AI</span><span>service flow</span></div>
+              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>orchestrated</span></div><div class="scene-stack"><span class="caos-step">priority view</span><span class="caos-step">staff handoff</span><span class="caos-step">guest-safe update</span></div></div>
+            </div>
+            <div class="industry-title"><h3>Hospitality / Facilities</h3><span class="industry-icon" aria-hidden="true">🏨</span></div>
+            <p class="story">Hotels, campuses, and facilities teams need service recovery before a small issue becomes a bad experience.</p>
+            <div class="comparison"><div class="compare-box"><strong>Today</strong>Guest requests, housekeeping status, vendor work, and building issues often move through separate channels.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A single operational layer can prioritize issues, guide staff, and coordinate maintenance, rooms, and communication.</div></div>
+            <div class="guidance-note">AI assists service teams by making workflows visible and actionable, keeping empathy and judgment with people.</div>
+            <div class="capability-strip"><span>centralized visibility</span><span>workflow awareness</span><span>guided response</span><span>human handoff</span></div>
+          </article>
+
+          <article class="industry-card">
+            <div class="concept-art">
+              <div class="scene"><div class="scene-label"><span>Today</span><span>tribal knowledge</span></div><div class="scene-stack"><span class="fragment">mentor advice</span><span class="fragment">manual lookup</span><span class="fragment">jobsite notes</span></div></div>
+              <div class="bridge"><span class="bridge-mark">AI</span><span>coach mode</span></div>
+              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>apprenticeship</span></div><div class="scene-stack"><span class="caos-step">step guidance</span><span class="caos-step">safety prompts</span><span class="caos-step">skill record</span></div></div>
+            </div>
+            <div class="industry-title"><h3>Workforce Training / Technical Apprenticeship</h3><span class="industry-icon" aria-hidden="true">🧰</span></div>
+            <p class="story">The next generation of technicians needs field guidance that respects mentors, safety, and hands-on learning.</p>
+            <div class="comparison"><div class="compare-box"><strong>Today</strong>New workers learn from scattered manuals, busy supervisors, old notes, and whatever equipment is available that day.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A training-aware layer can explain systems, show safe sequences, ask diagnostic questions, and document growth over time.</div></div>
+            <div class="guidance-note">AI becomes a supervised coach: it helps people learn faster without pretending experience, certification, or judgment can be automated away.</div>
+            <div class="capability-strip"><span>AI-assisted learning</span><span>offline guides</span><span>mentor visibility</span><span>skill receipts</span></div>
+          </article>
         </div>
       </div>
     </section>
@@ -651,6 +1104,7 @@
       <div class="aria-quick" aria-label="Aria guided prompts">
         <button type="button" data-topic="background">Michael’s background</button>
         <button type="button" data-topic="caos">CAOS</button>
+        <button type="button" data-topic="showcase">Industry showcase</button>
         <button type="button" data-topic="care">CAOS Care</button>
         <button type="button" data-topic="projects">Projects</button>
         <button type="button" data-topic="operational">Operational AI</button>
@@ -682,6 +1136,7 @@
     const ariaPrompts = {
       background: "Tell me about Michael's work history.",
       caos: "What is CAOS?",
+      showcase: "How does the CAOS industry showcase explain operational AI?",
       care: "What is CAOS Care?",
       projects: "What public projects are part of BringYourAI?",
       operational: "What kind of AI work is Michael focused on?"
