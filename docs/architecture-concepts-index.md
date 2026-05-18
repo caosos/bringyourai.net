@@ -1,8 +1,8 @@
-# BringYourAI Architecture Concepts Index
+# BringYourAI / CAOS Architecture Concepts Index
 
 ## Purpose
 
-This document is the public-safe index of Michael Chambers' architecture concepts, systems ideas, and AI/product directions that may be surfaced on BringYourAI.net as proof-of-thinking.
+This document is the public-safe index of Michael Chambers' architecture concepts, systems ideas, CAOS ecosystem terminology, and AI/product directions that may be surfaced on BringYourAI.net as proof-of-thinking.
 
 This is NOT a private incident log.
 This is NOT a raw email dump.
@@ -38,22 +38,66 @@ Do NOT show:
 
 ---
 
+# Canonical Ecosystem References
+
+Start with these files when changing ecosystem language:
+
+- `ecosystem-overview.md`
+- `adaptive-operational-environments.md`
+- `bring-your-ai-thesis.md`
+- `caos-operational-philosophy.md`
+- `future-verticals-and-environments.md`
+
+---
+
 # Core Concept Families
 
-## 1. BringYourAI
+## 1. CAOS
+
+CAOS is the core Adaptive Operational Environments framework.
+
+Canonical definition:
+
+Human-governed AI systems designed to coordinate infrastructure, workflows, and operational awareness across real-world environments.
+
+Public-safe architecture themes:
+
+- adaptive operational environments
+- operational memory
+- infrastructure awareness
+- role-aware coordination
+- workflow orchestration
+- context hydration
+- tool and system integration
+- governance boundaries
+- action receipts
+- auditability
+- explicit learning
+- local/cloud AI cooperation
+
+Public positioning:
+
+CAOS is the core framework for governed operational AI. It coordinates people, workflows, infrastructure context, and memory while preserving human oversight and accountability.
+
+---
+
+## 2. BringYourAI
+
+BringYourAI is the portability and public identity thesis of the ecosystem.
 
 Primary thesis:
 
-Your AI, memory, workflows, identity, devices, and rules should travel with you instead of remaining trapped inside disconnected platforms.
+Users may eventually carry trusted AI continuity, memory, workflows, identity, and rules between environments while organizations maintain governance, permissions, compliance boundaries, and auditability.
 
 Public themes:
 
-- user-owned AI
-- portable memory
+- portable AI continuity
+- user-owned context
+- governed memory
 - persistent identity
-- governed personal context
-- connected accounts and projects
 - public/private identity layers
+- receiving-environment permissions
+- auditability and revocation
 - AI-native professional profile
 
 Current public use:
@@ -62,42 +106,20 @@ Current public use:
 - interactive resume
 - project showcase
 - proof-of-thinking platform
-
----
-
-## 2. CAOS
-
-Cognitive Adaptive Operating System.
-
-Public-safe architecture themes:
-
-- governed AI operating layer
-- memory systems
-- context hydration
-- tool orchestration
-- model routing
-- receipts
-- observability
-- explicit learning
-- user authority
-- local/cloud AI cooperation
-
-Public positioning:
-
-CAOS is a governed AI platform concept focused on memory-aware workflows, user-owned context, tool-connected execution, and transparent AI operation.
+- public demonstration layer for portability concepts
 
 ---
 
 ## 3. CAOS Care
 
-Senior-care application direction.
+CAOS Care is one vertical built on CAOS principles.
 
 Public-safe architecture themes:
 
 - resident support
-- staff support
+- staff workflow support
 - reminders
-- alerts
+- alerts and escalation boundaries
 - wearable/pendant concepts
 - voice-first interaction
 - care workflow documentation
@@ -106,11 +128,34 @@ Public-safe architecture themes:
 
 Public positioning:
 
-CAOS Care is an assistive workflow and support layer for senior-care environments, not an autonomous medical decision-maker.
+CAOS Care is an assistive workflow and support layer for healthcare and senior-care environments, not an autonomous medical decision-maker, emergency replacement, or substitute for licensed care staff.
 
 ---
 
-## 4. Local AI Workbench
+## 4. Adaptive Operational Environments
+
+Concept:
+
+Adaptive Operational Environments are operationally aware environments where AI assists humans through contextual coordination, workflow continuity, operational memory, infrastructure awareness, and governed automation.
+
+Architecture themes:
+
+- role-aware context
+- infrastructure cognition
+- workflow continuity
+- operational nervous systems
+- transparent awareness
+- governed automation
+- handoff preservation
+- human oversight
+
+Public positioning:
+
+Adaptive environments help buildings, businesses, care settings, facilities, and operational teams become more legible, coordinated, and continuous.
+
+---
+
+## 5. Local AI Workbench
 
 Concept:
 
@@ -132,7 +177,7 @@ A practical local+cloud AI runtime for human-supervised work sessions.
 
 ---
 
-## 5. Shared Human/AI Workspace
+## 6. Shared Human/AI Workspace
 
 Concept:
 
@@ -154,7 +199,7 @@ Human-governed collaborative cognition, not hidden autonomy.
 
 ---
 
-## 6. Operational AI Systems
+## 7. Operational AI Systems
 
 Concept:
 
@@ -177,7 +222,7 @@ Michael's differentiator is the bridge between real-world systems experience and
 
 ---
 
-## 7. AI Infrastructure / Energy / Cooling Concepts
+## 8. AI Infrastructure / Energy / Cooling Concepts
 
 Concept:
 
@@ -199,7 +244,7 @@ Systems thinking applied to AI infrastructure constraints.
 
 ---
 
-## 8. AI-Native Identity / Profile Layer
+## 9. AI-Native Identity / Profile Layer
 
 Concept parked for later:
 
@@ -217,6 +262,36 @@ Architecture themes:
 Current status:
 
 Documented as long-range concept only. Do not expand into active build until the current BringYourAI.net profile/resume site is stronger.
+
+---
+
+# Trust and Autonomy Model
+
+Use this progressive trust ladder when describing CAOS capabilities:
+
+1. observe;
+2. assist;
+3. recommend;
+4. coordinate;
+5. bounded automation;
+6. trusted operational autonomy with oversight.
+
+Do not describe advanced autonomy without explicit scope, permissions, logs, escalation, and human override.
+
+---
+
+# Future Vertical Families
+
+Future verticals should inherit the CAOS framework instead of becoming disconnected concepts. Public-safe examples include:
+
+- CAOS Facilities
+- CAOS Industrial
+- CAOS Response
+- CAOS Education
+- CAOS Workforce
+- CAOS Logistics
+
+Each vertical should define its environment, roles, workflows, context/memory, governance model, integrations, trust level, and public-safe boundary.
 
 ---
 
@@ -251,10 +326,12 @@ Architecture concepts should support that goal, not distract from it.
 
 When working on this repository:
 
-1. Read `README.md` first.
+1. Read `../README.md` first.
 2. Read this file second.
 3. Preserve public/private boundaries.
 4. Do not publish raw internal issues.
 5. Convert concepts into polished, employer/client-safe public summaries.
 6. Keep the site focused on Michael's professional identity and project credibility.
 7. Update this index when a new major architecture concept becomes important.
+8. Keep CAOS as the core framework, CAOS Care as one vertical, and BringYourAI as the portability/public identity thesis.
+9. Avoid fake deployments, fabricated partnerships, exaggerated autonomy claims, AGI/singularity framing, unsafe medical/emergency claims, and “replace humans” language.

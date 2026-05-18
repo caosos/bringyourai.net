@@ -113,46 +113,44 @@ physical systems ↔ AI systems
 
 # Project Ecosystem
 
-## BringYourAI
+The canonical public-safe ecosystem reference starts with:
 
-Primary public identity and long-range AI portability concept.
-
-Core thesis:
-
-Your AI, memory, workflows, identity, and systems should travel with YOU instead of remaining trapped inside disconnected platforms.
-
----
+- `docs/ecosystem-overview.md`
+- `docs/adaptive-operational-environments.md`
+- `docs/bring-your-ai-thesis.md`
+- `docs/caos-operational-philosophy.md`
+- `docs/future-verticals-and-environments.md`
+- `docs/architecture-concepts-index.md`
 
 ## CAOS
 
-Cognitive Adaptive Operating System.
+CAOS is the core Adaptive Operational Environments framework.
 
-Governed AI operating-layer concepts involving:
+It describes human-governed AI systems designed to coordinate infrastructure, workflows, and operational awareness across real-world environments. CAOS is the foundation for future verticals and should be framed around governance, memory, role-aware coordination, auditability, interoperability, and operational continuity.
 
-- memory systems
-- workflow orchestration
-- tool integration
-- contextual reasoning
-- observability
-- explicit learning
-- user governance
-- operational AI
+---
+
+## BringYourAI
+
+BringYourAI is the portability and public identity thesis of the ecosystem.
+
+Core thesis:
+
+Users may eventually carry trusted AI continuity, memory, workflows, identity, and rules between environments while organizations maintain governance, permissions, compliance boundaries, and auditability. BringYourAI.net is currently the public demonstration layer: a professional identity space, systems portfolio, architecture narrative, and proof-of-thinking platform.
 
 ---
 
 ## CAOS Care
 
-Senior-care AI support/workflow direction.
+CAOS Care is one vertical built on CAOS principles.
 
-Includes concepts involving:
+It represents a healthcare and senior-care operational environment direction focused on reminders, staff workflows, contextual support, operational continuity, and human-supervised assistance. It must not be described as an autonomous medical decision-maker, emergency replacement, or substitute for licensed care staff.
 
-- reminders
-- staff workflows
-- wearable support
-- voice interaction
-- resident assistance
-- operational coordination
-- contextual awareness
+---
+
+## Adaptive Operational Environments
+
+Adaptive Operational Environments are operationally aware environments where AI assists humans through contextual coordination, workflow continuity, operational memory, infrastructure awareness, and governed automation.
 
 ---
 
@@ -168,9 +166,11 @@ These ideas are documented but are NOT current implementation priority:
 - human/AI shared workspaces
 - contextual identity systems
 
-Reference:
+References:
 
-`docs/bringyourai-identity-and-local-ai-concepts.md`
+- `docs/ecosystem-overview.md`
+- `docs/bring-your-ai-thesis.md`
+- `docs/bringyourai-identity-and-local-ai-concepts.md`
 
 ---
 
@@ -196,13 +196,16 @@ Long-term hosting philosophy:
 
 Any future contributor, AI agent, assistant, or operator working inside this repository should:
 
-1. Preserve coherence and professionalism.
-2. Prioritize authenticity over hype.
-3. Focus on active/public-facing value.
-4. Avoid bloated complexity.
-5. Keep the experience visually clean and technically grounded.
-6. Treat this repository as both a resume and a systems portfolio.
-7. Update this README whenever major project direction changes.
+1. Read `docs/ecosystem-overview.md` before changing ecosystem terminology.
+2. Preserve coherence and professionalism.
+3. Prioritize authenticity over hype.
+4. Focus on active/public-facing value.
+5. Avoid bloated complexity.
+6. Keep the experience visually clean and technically grounded.
+7. Treat this repository as both a resume and a systems portfolio.
+8. Keep CAOS as the core framework, CAOS Care as one vertical, and BringYourAI as the portability/public identity thesis.
+9. Avoid fake deployments, fabricated partnerships, exaggerated autonomy claims, AGI/singularity framing, unsafe medical/emergency claims, and “replace humans” language.
+10. Update this README whenever major project direction changes.
 
 ---
 
