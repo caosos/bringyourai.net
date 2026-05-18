@@ -445,6 +445,204 @@
       font-size: 0.76rem;
     }
 
+
+    .interactive-card {
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .interactive-card:hover,
+    .interactive-card:focus-visible,
+    .interactive-card.active {
+      transform: translateY(-3px);
+      border-color: rgba(240,184,108,0.48);
+      box-shadow: 0 24px 72px rgba(0,0,0,0.28), 0 0 0 1px rgba(240,184,108,0.12) inset;
+      outline: none;
+    }
+
+    .interactive-card.active::after {
+      content: "Selected scenario";
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      border: 1px solid rgba(155,214,170,0.42);
+      border-radius: 999px;
+      padding: 5px 8px;
+      background: rgba(155,214,170,0.12);
+      color: var(--green);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .explore-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 14px 0 0;
+      border: 1px solid rgba(240,184,108,0.38);
+      border-radius: 999px;
+      padding: 9px 12px;
+      background: rgba(240,184,108,0.12);
+      color: var(--accent-bright);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 850;
+    }
+
+    .explore-button::after { content: "↘"; }
+    .explore-button:hover { background: rgba(240,184,108,0.18); color: var(--ink); }
+
+    .industry-detail-panel {
+      margin: 0 36px 36px;
+      border: 1px solid rgba(240,184,108,0.24);
+      border-radius: 30px;
+      padding: 24px;
+      background:
+        linear-gradient(145deg, rgba(240,184,108,0.10), transparent 40%),
+        linear-gradient(180deg, rgba(255,255,255,0.072), rgba(255,255,255,0.026)),
+        #10131a;
+      box-shadow: 0 24px 72px rgba(0,0,0,0.24);
+    }
+
+    .detail-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail-header h3 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 3vw, 2.35rem);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+    }
+
+    .detail-header p { margin: 0; color: var(--muted); max-width: 760px; }
+    .aria-topic-button { flex: 0 0 auto; white-space: nowrap; background: rgba(255,255,255,0.035); }
+
+    .detail-story-grid,
+    .detail-body-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .detail-story-card,
+    .point-detail {
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 22px;
+      padding: 16px;
+      background: rgba(255,255,255,0.045);
+    }
+
+    .detail-story-card strong { display: block; color: var(--ink); margin-bottom: 6px; }
+    .detail-story-card p { margin: 0; color: var(--muted); }
+    .caos-card { border-color: rgba(240,184,108,0.28); background: rgba(240,184,108,0.08); }
+
+    .detail-body-grid h4 { margin: 0 0 10px; font-size: 1rem; letter-spacing: -0.015em; }
+    .point-list { display: grid; gap: 10px; }
+
+    .point-button {
+      width: 100%;
+      text-align: left;
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 18px;
+      padding: 12px;
+      background: rgba(255,255,255,0.045);
+      color: var(--ink);
+      cursor: pointer;
+      font: inherit;
+      transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+    }
+
+    .point-button strong { display: block; margin-bottom: 3px; }
+    .point-button span { display: block; color: var(--muted); font-size: 0.88rem; line-height: 1.35; }
+    .point-button:hover,
+    .point-button.active {
+      transform: translateX(2px);
+      border-color: rgba(240,184,108,0.42);
+      background: rgba(240,184,108,0.10);
+    }
+
+    .point-label {
+      display: inline-flex;
+      border: 1px solid rgba(240,184,108,0.34);
+      border-radius: 999px;
+      padding: 5px 8px;
+      color: var(--accent-bright);
+      background: rgba(240,184,108,0.10);
+      font-size: 0.76rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .point-detail h4 { font-size: 1.22rem; margin-bottom: 8px; }
+    .point-detail p { margin: 0 0 14px; color: var(--muted); }
+    .risk-box,
+    .change-box {
+      display: grid;
+      gap: 4px;
+      border-radius: 16px;
+      padding: 12px;
+      margin-top: 10px;
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(8,10,13,0.28);
+    }
+
+    .risk-box strong,
+    .change-box strong { color: var(--ink); }
+    .change-box { border-color: rgba(155,214,170,0.28); background: rgba(155,214,170,0.07); }
+
+    .flow-chain {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 18px;
+      padding: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      background: rgba(255,255,255,0.035);
+    }
+
+    .flow-step {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .flow-step:not(:last-child)::after {
+      content: "→";
+      color: var(--accent-bright);
+      opacity: 0.9;
+    }
+
+    .flow-step span {
+      border: 1px solid rgba(240,184,108,0.24);
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(240,184,108,0.08);
+    }
+
+    .oversight-note {
+      margin-top: 14px;
+      border-left: 3px solid var(--green);
+      border-radius: 10px;
+      padding: 12px 0 12px 14px;
+      color: #e9dcc9;
+      background: linear-gradient(90deg, rgba(155,214,170,0.08), transparent);
+    }
+
     @keyframes breathe {
       0%, 100% { transform: scale(1); box-shadow: 0 0 28px rgba(240,184,108,0.12); }
       50% { transform: scale(1.05); box-shadow: 0 0 42px rgba(134,183,255,0.20); }
@@ -641,11 +839,14 @@
     .aria-orb-copy span { color: var(--muted); font-size: 0.76rem; }
 
     @media (max-width: 900px) {
-      .hero-grid, .grid-2, .grid-3, .architecture-list, .proof-map, .showcase-hero, .showcase-principles, .industry-grid, .comparison { grid-template-columns: 1fr; }
+      .hero-grid, .grid-2, .grid-3, .architecture-list, .proof-map, .showcase-hero, .showcase-principles, .industry-grid, .comparison, .detail-story-grid, .detail-body-grid { grid-template-columns: 1fr; }
       .nav-inner { align-items: flex-start; flex-direction: column; padding: 16px 0; }
       .hero { padding-top: 52px; }
       .rule-stack { grid-template-columns: 1fr; }
       .showcase-hero, .industry-grid { padding-left: 18px; padding-right: 18px; }
+      .industry-detail-panel { margin: 0 18px 24px; padding: 18px; }
+      .detail-header { display: grid; }
+      .aria-topic-button { width: 100%; }
       .showcase-principles { padding: 0 18px 22px; }
       .concept-art { grid-template-columns: 1fr; }
       .bridge { grid-template-columns: 58px 1fr; justify-content: start; text-align: left; }
@@ -746,138 +947,147 @@
           <div class="principle"><strong>Offline-capable direction</strong>Local procedures, cached context, and field guidance can remain available during outages.</div>
         </div>
 
-        <div class="industry-grid">
-          <article class="industry-card">
+        <div class="industry-grid" aria-label="Interactive CAOS industry scenarios">
+          <article class="industry-card interactive-card active" data-industry="building" tabindex="0" aria-controls="industry-detail" aria-expanded="true">
             <div class="concept-art">
-              <div class="scene"><div class="scene-label"><span>Today</span><span>fragmented</span></div><div class="scene-stack"><span class="fragment">IEP notes</span><span class="fragment">classroom tools</span><span class="fragment">staff handoffs</span></div></div>
-              <div class="bridge"><span class="bridge-mark">AI</span><span>guided layer</span></div>
-              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>coordinated</span></div><div class="scene-stack"><span class="caos-step">student context</span><span class="caos-step">teacher prompts</span><span class="caos-step">support workflow</span></div></div>
+              <div class="scene"><div class="scene-label"><span>Today</span><span>fragmented</span></div><div class="scene-stack"><span class="fragment">contractor log</span><span class="fragment">HVAC alarm</span><span class="fragment">access card</span></div></div>
+              <div class="bridge"><span class="bridge-mark">AI</span><span>building memory</span></div>
+              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>aware site</span></div><div class="scene-stack"><span class="caos-step">scoped access</span><span class="caos-step">risk map</span><span class="caos-step">task continuity</span></div></div>
+            </div>
+            <div class="industry-title"><h3>Building / Business Operations</h3><span class="industry-icon" aria-hidden="true">🏢</span></div>
+            <p class="story">Buildings and businesses become adaptive operational environments: aware of work in progress, permissions, risks, open issues, and safe next steps.</p>
+            <div class="comparison"><div class="compare-box"><strong>Today</strong>Contractor sign-in, keys, alarms, panels, work orders, manuals, and tribal knowledge live in different places.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A trusted layer coordinates role-aware identity, task context, building systems, and human-approved guidance without replacing existing infrastructure.</div></div>
+            <button class="explore-button" type="button">Explore scenario</button>
+            <div class="capability-strip"><span>temporary scoped access</span><span>operational memory</span><span>role-aware identity</span><span>human approval</span></div>
+          </article>
+
+          <article class="industry-card interactive-card" data-industry="industrial" tabindex="0" aria-controls="industry-detail" aria-expanded="false">
+            <div class="concept-art">
+              <div class="scene"><div class="scene-label"><span>Today</span><span>manual search</span></div><div class="scene-stack"><span class="fragment">PLC alarm</span><span class="fragment">old controller</span><span class="fragment">parts shelf</span></div></div>
+              <div class="bridge"><span class="bridge-mark">AI</span><span>topology map</span></div>
+              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>guided repair</span></div><div class="scene-stack"><span class="caos-step">root cause path</span><span class="caos-step">safe steps</span><span class="caos-step">repair record</span></div></div>
+            </div>
+            <div class="industry-title"><h3>Industrial / Manufacturing</h3><span class="industry-icon" aria-hidden="true">🏭</span></div>
+            <p class="story">Machines already have PLCs, controllers, sensors, and onboard computers. CAOS treats even outdated systems as useful signals.</p>
+            <div class="comparison"><div class="compare-box"><strong>Today</strong>Alarm codes, maintenance history, sensor readings, manuals, and parts paths are disconnected during downtime.</div><div class="compare-box caos"><strong>CAOS changes it</strong>Topology, relationships, alarms, likely causes, safety prompts, and repair documentation become one technician-facing workflow.</div></div>
+            <button class="explore-button" type="button">Explore scenario</button>
+            <div class="capability-strip"><span>PLC context</span><span>sensor mismatch</span><span>parts path</span><span>knowledge capture</span></div>
+          </article>
+
+          <article class="industry-card interactive-card" data-industry="admin" tabindex="0" aria-controls="industry-detail" aria-expanded="false">
+            <div class="concept-art">
+              <div class="scene"><div class="scene-label"><span>Today</span><span>paper chase</span></div><div class="scene-stack"><span class="fragment">shared drive</span><span class="fragment">receipt photo</span><span class="fragment">portal upload</span></div></div>
+              <div class="bridge"><span class="bridge-mark">AI</span><span>task agent</span></div>
+              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>routed work</span></div><div class="scene-stack"><span class="caos-step">current doc</span><span class="caos-step">evidence route</span><span class="caos-step">missing items</span></div></div>
+            </div>
+            <div class="industry-title"><h3>Administrative Workflow Intelligence</h3><span class="industry-icon" aria-hidden="true">🗂️</span></div>
+            <p class="story">Office friction hides in duplicate files, stale templates, P-card receipt loops, and manual evidence routing between phone, email, computer, and portal.</p>
+            <div class="comparison"><div class="compare-box"><strong>Today</strong>People lose time finding the right version, moving receipt photos, and tracking what is still missing.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A task-aware agent finds the current document, flags stale copies, routes receipt evidence, and keeps the checklist visible.</div></div>
+            <button class="explore-button" type="button">Explore scenario</button>
+            <div class="capability-strip"><span>stale-doc flags</span><span>P-card support</span><span>evidence routing</span><span>audit trail</span></div>
+          </article>
+
+          <article class="industry-card interactive-card" data-industry="education" tabindex="0" aria-controls="industry-detail" aria-expanded="false">
+            <div class="concept-art">
+              <div class="scene"><div class="scene-label"><span>Today</span><span>overloaded</span></div><div class="scene-stack"><span class="fragment">classroom tools</span><span class="fragment">IEP notes</span><span class="fragment">family emails</span></div></div>
+              <div class="bridge"><span class="bridge-mark">AI</span><span>teacher reach</span></div>
+              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>individualized</span></div><div class="scene-stack"><span class="caos-step">pacing support</span><span class="caos-step">language help</span><span class="caos-step">accommodations</span></div></div>
             </div>
             <div class="industry-title"><h3>Education</h3><span class="industry-icon" aria-hidden="true">🎓</span></div>
-            <p class="story">A teacher should not have to hunt through disconnected notes, platforms, and emails to understand what a student needs in the moment.</p>
-            <div class="comparison"><div class="compare-box"><strong>Today</strong>Learning plans, behavior notes, assignments, and family communication often live in separate systems.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A governed layer can summarize permitted context, suggest next steps, and keep humans in control of instruction and care.</div></div>
-            <div class="guidance-note">AI assists educators with reminders, accommodations, workflow awareness, and documentation support — not student replacement or automated judgment.</div>
-            <div class="capability-strip"><span>guided workflows</span><span>central visibility</span><span>offline playbooks</span><span>human approval</span></div>
+            <p class="story">AI should multiply a teacher’s reach while the teacher remains the authority over instruction, care, and classroom judgment.</p>
+            <div class="comparison"><div class="compare-box"><strong>Today</strong>Students need different pacing, language support, accommodations, and communication, while teachers manage too many systems.</div><div class="compare-box caos"><strong>CAOS changes it</strong>Each student can receive individualized support that stays governed by teacher-approved context and school policy.</div></div>
+            <button class="explore-button" type="button">Explore scenario</button>
+            <div class="capability-strip"><span>teacher-governed</span><span>adaptive pacing</span><span>communication support</span><span>human approval</span></div>
           </article>
 
-          <article class="industry-card">
+          <article class="industry-card interactive-card" data-industry="care" tabindex="0" aria-controls="industry-detail" aria-expanded="false">
             <div class="concept-art">
-              <div class="scene"><div class="scene-label"><span>Today</span><span>reactive</span></div><div class="scene-stack"><span class="fragment">resident call</span><span class="fragment">shift notes</span><span class="fragment">device alert</span></div></div>
+              <div class="scene"><div class="scene-label"><span>Today</span><span>handoff gaps</span></div><div class="scene-stack"><span class="fragment">resident call</span><span class="fragment">shift note</span><span class="fragment">family question</span></div></div>
               <div class="bridge"><span class="bridge-mark">AI</span><span>care support</span></div>
-              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>aware</span></div><div class="scene-stack"><span class="caos-step">resident needs</span><span class="caos-step">staff routing</span><span class="caos-step">family-safe updates</span></div></div>
+              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>aware team</span></div><div class="scene-stack"><span class="caos-step">resident context</span><span class="caos-step">staff reminder</span><span class="caos-step">safe summary</span></div></div>
             </div>
-            <div class="industry-title"><h3>Healthcare / Senior Care</h3><span class="industry-icon" aria-hidden="true">🫶</span></div>
-            <p class="story">Care teams need fast context, compassionate reminders, and clean handoffs without turning AI into a clinician or caregiver replacement.</p>
-            <div class="comparison"><div class="compare-box"><strong>Today</strong>Reminders, call lights, work orders, notes, and family communication can be operationally scattered.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A supervised layer can help route tasks, surface relevant context, and support resident-facing assistance within clear boundaries.</div></div>
-            <div class="guidance-note">The framing is assistive and public-safe: CAOS Care supports staff and residents, while medical decisions remain with qualified humans and regulated systems.</div>
-            <div class="capability-strip"><span>staff support</span><span>voice-first help</span><span>alert triage</span><span>human supervision</span></div>
+            <div class="industry-title"><h3>Senior Care / Healthcare</h3><span class="industry-icon" aria-hidden="true">🫶</span></div>
+            <p class="story">Care staff need resident awareness, reminders, behavior-change signals, and family-safe summaries without blurring medical authority.</p>
+            <div class="comparison"><div class="compare-box"><strong>Today</strong>Call lights, shift notes, reminders, observations, and family communication may not line up cleanly.</div><div class="compare-box caos"><strong>CAOS changes it</strong>CAOS can support handoffs and compassionate continuity while clinicians and caregivers retain authority.</div></div>
+            <button class="explore-button" type="button">Explore scenario</button>
+            <div class="capability-strip"><span>resident awareness</span><span>staff handoffs</span><span>family-safe summaries</span><span>clear boundaries</span></div>
           </article>
 
-          <article class="industry-card">
+          <article class="industry-card interactive-card" data-industry="emergency" tabindex="0" aria-controls="industry-detail" aria-expanded="false">
             <div class="concept-art">
-              <div class="scene"><div class="scene-label"><span>Today</span><span>high pressure</span></div><div class="scene-stack"><span class="fragment">caller details</span><span class="fragment">maps</span><span class="fragment">radio traffic</span></div></div>
-              <div class="bridge"><span class="bridge-mark">AI</span><span>decision support</span></div>
-              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>structured</span></div><div class="scene-stack"><span class="caos-step">checklists</span><span class="caos-step">resource view</span><span class="caos-step">handoff notes</span></div></div>
+              <div class="scene"><div class="scene-label"><span>Today</span><span>high stress</span></div><div class="scene-stack"><span class="fragment">panicked caller</span><span class="fragment">missing facts</span><span class="fragment">handoff notes</span></div></div>
+              <div class="bridge"><span class="bridge-mark">AI</span><span>calm structure</span></div>
+              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>supported</span></div><div class="scene-stack"><span class="caos-step">adaptive prompts</span><span class="caos-step">context capture</span><span class="caos-step">summary handoff</span></div></div>
             </div>
-            <div class="industry-title"><h3>Emergency Response / 911</h3><span class="industry-icon" aria-hidden="true">🚨</span></div>
-            <p class="story">Dispatchers and responders need calm, structured support when every second matters and information arrives incomplete.</p>
-            <div class="comparison"><div class="compare-box"><strong>Today</strong>Operators coordinate calls, maps, unit status, procedures, and agency communication under extreme load.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A governed layer could provide checklist guidance, summarize approved facts, flag missing information, and preserve command authority.</div></div>
-            <div class="guidance-note">AI supports situational awareness and troubleshooting flow; it does not replace dispatchers, incident command, or emergency protocols.</div>
-            <div class="capability-strip"><span>operational awareness</span><span>guided checklists</span><span>offline procedures</span><span>accountable handoff</span></div>
+            <div class="industry-title"><h3>Emergency / 911</h3><span class="industry-icon" aria-hidden="true">🚨</span></div>
+            <p class="story">Under stress, callers need calm communication and dispatchers need structured context without surrendering authority to automation.</p>
+            <div class="comparison"><div class="compare-box"><strong>Today</strong>Critical facts arrive out of order while dispatchers manage protocols, caller emotion, maps, and responder handoffs.</div><div class="compare-box caos"><strong>CAOS changes it</strong>AI can help gather context, calm the caller, and prepare concise summaries while dispatch remains human-led.</div></div>
+            <button class="explore-button" type="button">Explore scenario</button>
+            <div class="capability-strip"><span>adaptive communication</span><span>caller calming</span><span>handoff summaries</span><span>dispatcher authority</span></div>
           </article>
 
-          <article class="industry-card">
+          <article class="industry-card interactive-card" data-industry="security" tabindex="0" aria-controls="industry-detail" aria-expanded="false">
             <div class="concept-art">
-              <div class="scene"><div class="scene-label"><span>Today</span><span>hidden state</span></div><div class="scene-stack"><span class="fragment">HVAC panel</span><span class="fragment">work orders</span><span class="fragment">vendor manuals</span></div></div>
-              <div class="bridge"><span class="bridge-mark">AI</span><span>building guide</span></div>
-              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>self-reporting</span></div><div class="scene-stack"><span class="caos-step">fault context</span><span class="caos-step">service steps</span><span class="caos-step">parts path</span></div></div>
+              <div class="scene"><div class="scene-label"><span>Today</span><span>alert noise</span></div><div class="scene-stack"><span class="fragment">visitor badge</span><span class="fragment">camera event</span><span class="fragment">door access</span></div></div>
+              <div class="bridge"><span class="bridge-mark">AI</span><span>safety context</span></div>
+              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>auditable</span></div><div class="scene-stack"><span class="caos-step">purpose check</span><span class="caos-step">temporary access</span><span class="caos-step">event trail</span></div></div>
             </div>
-            <div class="industry-title"><h3>Building Operations</h3><span class="industry-icon" aria-hidden="true">🏢</span></div>
-            <p class="story">Buildings should be able to tell humans what is failing, where to look, what changed, and what safe next step to take.</p>
-            <div class="comparison"><div class="compare-box"><strong>Today</strong>Facilities teams interpret alarms, tenant reports, control panels, paper manuals, and incomplete maintenance histories.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A building-aware layer can combine sensor state, work order history, manuals, and technician guidance into one view.</div></div>
-            <div class="guidance-note">CAOS turns infrastructure into a teaching system: the building helps technicians service it while people decide what action is safe.</div>
-            <div class="capability-strip"><span>smart monitoring</span><span>central visibility</span><span>guided troubleshooting</span><span>local fallback</span></div>
+            <div class="industry-title"><h3>Security / Safety</h3><span class="industry-icon" aria-hidden="true">🛡️</span></div>
+            <p class="story">Safety work depends on knowing who is present, why they are there, what they can access, and where privacy boundaries apply.</p>
+            <div class="comparison"><div class="compare-box"><strong>Today</strong>Visitor identity, contractor purpose, temporary keys, unusual presence, and incident notes often split across systems.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A governed interface can connect identity, purpose, permission, anomaly awareness, and audit trail without autonomous enforcement.</div></div>
+            <button class="explore-button" type="button">Explore scenario</button>
+            <div class="capability-strip"><span>visitor identity</span><span>temporary access</span><span>privacy boundaries</span><span>audit trail</span></div>
           </article>
 
-          <article class="industry-card">
-            <div class="concept-art">
-              <div class="scene"><div class="scene-label"><span>Today</span><span>manual search</span></div><div class="scene-stack"><span class="fragment">PLC alarm</span><span class="fragment">maintenance log</span><span class="fragment">parts shelf</span></div></div>
-              <div class="bridge"><span class="bridge-mark">AI</span><span>root cause</span></div>
-              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>guided repair</span></div><div class="scene-stack"><span class="caos-step">symptom map</span><span class="caos-step">lockout prompt</span><span class="caos-step">repair record</span></div></div>
-            </div>
-            <div class="industry-title"><h3>Industrial Maintenance</h3><span class="industry-icon" aria-hidden="true">🛠️</span></div>
-            <p class="story">Technicians need the machine history, symptoms, safety reminders, and likely diagnostic path before downtime spreads.</p>
-            <div class="comparison"><div class="compare-box"><strong>Today</strong>Diagnostics depend on experience, tribal knowledge, scattered manuals, alarm codes, and handwritten repair notes.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A governed layer can organize troubleshooting steps, attach receipts, and keep maintenance knowledge available to the next technician.</div></div>
-            <div class="guidance-note">AI assists root-cause thinking and documentation while technicians remain responsible for physical safety and final repair decisions.</div>
-            <div class="capability-strip"><span>failure reporting</span><span>guided troubleshooting</span><span>receipts</span><span>knowledge capture</span></div>
-          </article>
-
-          <article class="industry-card">
-            <div class="concept-art">
-              <div class="scene"><div class="scene-label"><span>Today</span><span>siloed line</span></div><div class="scene-stack"><span class="fragment">quality station</span><span class="fragment">shift target</span><span class="fragment">machine alarms</span></div></div>
-              <div class="bridge"><span class="bridge-mark">AI</span><span>flow view</span></div>
-              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>coordinated</span></div><div class="scene-stack"><span class="caos-step">line context</span><span class="caos-step">operator assist</span><span class="caos-step">quality notes</span></div></div>
-            </div>
-            <div class="industry-title"><h3>Manufacturing</h3><span class="industry-icon" aria-hidden="true">🏭</span></div>
-            <p class="story">Production teams need visibility across machines, quality checks, shift communication, and maintenance impact.</p>
-            <div class="comparison"><div class="compare-box"><strong>Today</strong>Operations, quality, maintenance, and scheduling often see different slices of the same production reality.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A workflow-aware layer can connect signals, explain constraints, and guide human-directed automation across the line.</div></div>
-            <div class="guidance-note">The goal is better operator support: AI helps people understand flow, exceptions, and safe options instead of hiding decisions.</div>
-            <div class="capability-strip"><span>line awareness</span><span>smart alerts</span><span>workflow routing</span><span>human-directed automation</span></div>
-          </article>
-
-          <article class="industry-card">
-            <div class="concept-art">
-              <div class="scene"><div class="scene-label"><span>Today</span><span>alert noise</span></div><div class="scene-stack"><span class="fragment">panel event</span><span class="fragment">camera note</span><span class="fragment">inspection log</span></div></div>
-              <div class="bridge"><span class="bridge-mark">AI</span><span>safety layer</span></div>
-              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>prioritized</span></div><div class="scene-stack"><span class="caos-step">event timeline</span><span class="caos-step">response checklist</span><span class="caos-step">compliance record</span></div></div>
-            </div>
-            <div class="industry-title"><h3>Security / Fire / Safety Systems</h3><span class="industry-icon" aria-hidden="true">🛡️</span></div>
-            <p class="story">Safety systems should surface what matters, explain the response path, and help humans document what happened.</p>
-            <div class="comparison"><div class="compare-box"><strong>Today</strong>Panels, inspections, cameras, access events, and incident notes can create more noise than operational clarity.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A governed interface can organize alerts, provide response checklists, and centralize visibility without claiming autonomous enforcement.</div></div>
-            <div class="guidance-note">AI supports monitoring and response coordination while trained people and approved procedures control escalation.</div>
-            <div class="capability-strip"><span>smart monitoring</span><span>alert triage</span><span>response guidance</span><span>audit trail</span></div>
-          </article>
-
-          <article class="industry-card">
-            <div class="concept-art">
-              <div class="scene"><div class="scene-label"><span>Today</span><span>moving parts</span></div><div class="scene-stack"><span class="fragment">driver status</span><span class="fragment">vehicle fault</span><span class="fragment">route change</span></div></div>
-              <div class="bridge"><span class="bridge-mark">AI</span><span>fleet brain</span></div>
-              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>aware fleet</span></div><div class="scene-stack"><span class="caos-step">maintenance risk</span><span class="caos-step">dispatch context</span><span class="caos-step">repair workflow</span></div></div>
-            </div>
-            <div class="industry-title"><h3>Logistics / Fleet</h3><span class="industry-icon" aria-hidden="true">🚚</span></div>
-            <p class="story">Fleet operations need vehicle health, dispatch context, driver communication, and maintenance planning in the same operating picture.</p>
-            <div class="comparison"><div class="compare-box"><strong>Today</strong>Route tools, repair records, driver notes, fuel data, and warning lights may not meet until something fails.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A coordinated layer can flag operational risk, guide troubleshooting, and connect repairs back to scheduling decisions.</div></div>
-            <div class="guidance-note">AI helps humans prioritize service and communication; it does not become the driver, dispatcher, or mechanic.</div>
-            <div class="capability-strip"><span>fleet visibility</span><span>predictive awareness</span><span>repair guidance</span><span>offline procedures</span></div>
-          </article>
-
-          <article class="industry-card">
-            <div class="concept-art">
-              <div class="scene"><div class="scene-label"><span>Today</span><span>guest impact</span></div><div class="scene-stack"><span class="fragment">room issue</span><span class="fragment">housekeeping</span><span class="fragment">maintenance ticket</span></div></div>
-              <div class="bridge"><span class="bridge-mark">AI</span><span>service flow</span></div>
-              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>orchestrated</span></div><div class="scene-stack"><span class="caos-step">priority view</span><span class="caos-step">staff handoff</span><span class="caos-step">guest-safe update</span></div></div>
-            </div>
-            <div class="industry-title"><h3>Hospitality / Facilities</h3><span class="industry-icon" aria-hidden="true">🏨</span></div>
-            <p class="story">Hotels, campuses, and facilities teams need service recovery before a small issue becomes a bad experience.</p>
-            <div class="comparison"><div class="compare-box"><strong>Today</strong>Guest requests, housekeeping status, vendor work, and building issues often move through separate channels.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A single operational layer can prioritize issues, guide staff, and coordinate maintenance, rooms, and communication.</div></div>
-            <div class="guidance-note">AI assists service teams by making workflows visible and actionable, keeping empathy and judgment with people.</div>
-            <div class="capability-strip"><span>centralized visibility</span><span>workflow awareness</span><span>guided response</span><span>human handoff</span></div>
-          </article>
-
-          <article class="industry-card">
+          <article class="industry-card interactive-card" data-industry="training" tabindex="0" aria-controls="industry-detail" aria-expanded="false">
             <div class="concept-art">
               <div class="scene"><div class="scene-label"><span>Today</span><span>tribal knowledge</span></div><div class="scene-stack"><span class="fragment">mentor advice</span><span class="fragment">manual lookup</span><span class="fragment">jobsite notes</span></div></div>
               <div class="bridge"><span class="bridge-mark">AI</span><span>coach mode</span></div>
-              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>apprenticeship</span></div><div class="scene-stack"><span class="caos-step">step guidance</span><span class="caos-step">safety prompts</span><span class="caos-step">skill record</span></div></div>
+              <div class="scene"><div class="scene-label"><span>With CAOS</span><span>continuity</span></div><div class="scene-stack"><span class="caos-step">role steps</span><span class="caos-step">safety prompts</span><span class="caos-step">skill record</span></div></div>
             </div>
-            <div class="industry-title"><h3>Workforce Training / Technical Apprenticeship</h3><span class="industry-icon" aria-hidden="true">🧰</span></div>
-            <p class="story">The next generation of technicians needs field guidance that respects mentors, safety, and hands-on learning.</p>
-            <div class="comparison"><div class="compare-box"><strong>Today</strong>New workers learn from scattered manuals, busy supervisors, old notes, and whatever equipment is available that day.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A training-aware layer can explain systems, show safe sequences, ask diagnostic questions, and document growth over time.</div></div>
-            <div class="guidance-note">AI becomes a supervised coach: it helps people learn faster without pretending experience, certification, or judgment can be automated away.</div>
-            <div class="capability-strip"><span>AI-assisted learning</span><span>offline guides</span><span>mentor visibility</span><span>skill receipts</span></div>
+            <div class="industry-title"><h3>Workforce Training</h3><span class="industry-icon" aria-hidden="true">🧰</span></div>
+            <p class="story">New workers should start with guided continuity: what happened before, what matters now, and when to ask a mentor.</p>
+            <div class="comparison"><div class="compare-box"><strong>Today</strong>Learning depends on busy supervisors, scattered manuals, old notes, and informal memory.</div><div class="compare-box caos"><strong>CAOS changes it</strong>A role-specific guide can show safe sequences, give mentors visibility, and preserve a skill-growth record.</div></div>
+            <button class="explore-button" type="button">Explore scenario</button>
+            <div class="capability-strip"><span>guided continuity</span><span>role-specific instructions</span><span>mentor visibility</span><span>skill growth</span></div>
           </article>
         </div>
-      </div>
+
+        <section class="industry-detail-panel" id="industry-detail" aria-live="polite" aria-label="Expanded industry scenario details">
+          <div class="detail-header">
+            <div>
+              <div class="eyebrow">Operational mini-scenario · click the points below</div>
+              <h3 id="detail-title">Building / Business Operations</h3>
+              <p id="detail-kicker">Buildings and businesses as adaptive operational environments.</p>
+            </div>
+            <button class="button secondary aria-topic-button" type="button" id="detail-aria-button">Ask Aria about this</button>
+          </div>
+          <div class="detail-story-grid">
+            <article class="detail-story-card today-card">
+              <strong>Today</strong>
+              <p id="detail-today"></p>
+            </article>
+            <article class="detail-story-card caos-card">
+              <strong>With CAOS</strong>
+              <p id="detail-caos"></p>
+            </article>
+          </div>
+          <div class="detail-body-grid">
+            <div>
+              <h4>Operational points</h4>
+              <div class="point-list" id="detail-points" role="tablist" aria-label="Scenario drill-down points"></div>
+            </div>
+            <article class="point-detail" id="point-detail" aria-live="polite">
+              <span class="point-label">Drill-down</span>
+              <h4 id="point-title"></h4>
+              <p id="point-copy"></p>
+              <div class="risk-box"><strong>Risk / boundary</strong><span id="point-risk"></span></div>
+              <div class="change-box"><strong>How CAOS changes the work</strong><span id="point-change"></span></div>
+            </article>
+          </div>
+          <div class="flow-chain" id="detail-flow" aria-label="Scenario flow chain"></div>
+          <div class="oversight-note"><strong>Human oversight / safety note:</strong> <span id="detail-oversight"></span></div>
+        </section>      </div>
     </section>
 
     <section id="michael" class="wrap">
@@ -1123,6 +1333,198 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const industryScenarios = {
+      building: {
+        title: 'Building / Business Operations',
+        kicker: 'A building or business becomes an adaptive operational environment with memory, context, and governed access.',
+        today: 'A contractor signs in on paper, receives a physical key or generic card, hears a vague complaint, checks a fire panel, HVAC panel, water/backflow log, plumbing note, access system, or smoke/security event, then leaves most of the learned context in a notebook or inbox.',
+        caos: 'CAOS sits above existing systems as trusted operational intelligence. It knows the current task, who is allowed where, which building systems are involved, what risks are open, what was tried last, and what a qualified worker should check next with human approval.',
+        flow: ['Sign in', 'Verify role', 'Scope access', 'Hydrate building context', 'Guide safe work', 'Record handoff'],
+        oversight: 'CAOS can recommend, explain, document, and issue permissioned prompts, but building owners, managers, qualified technicians, and approved safety procedures govern access and action.',
+        ariaPrompt: 'Explain the Building / Business Operations CAOS scenario: contractor sign-in, temporary scoped access, role-aware building identity, building systems, task continuity, and human oversight.',
+        points: [
+          { title: 'Contractor sign-in + scoped access', summary: 'Identity, purpose, location, and time window are connected.', copy: 'A vendor checks in for a backflow inspection or HVAC repair. Instead of a generic key handoff, CAOS understands the person, company, work order, qualification, destination, and expiration window.', risk: 'Access must be least-privilege, revocable, logged, and approved by authorized humans.', change: 'Temporary cards, keys, or mobile credentials can be scoped to specific doors, rooms, panels, and time periods, then closed out with an auditable record.' },
+          { title: 'Role-aware building identity', summary: 'The building responds differently to a plumber, electrician, guard, or manager.', copy: 'A plumber sees water shutoffs, backflow status, open leaks, and affected rooms. A security lead sees visitor status, access events, and incident notes. Each role gets relevant context without exposing unrelated data.', risk: 'Role boundaries and privacy rules matter as much as the guidance itself.', change: 'The same building becomes a permission-aware guide rather than a pile of disconnected panels, manuals, and binders.' },
+          { title: 'Systems as operational memory', summary: 'Fire, smoke, security, HVAC, plumbing, water, access, and work orders align.', copy: 'An HVAC alarm can be shown alongside a tenant complaint, recent roof work, access logs for the mechanical room, and the previous technician’s notes. The building remembers what changed.', risk: 'CAOS should not claim autonomous control over life-safety systems or bypass certified tools.', change: 'Existing systems stay useful while CAOS translates their state into a shared operating picture.' },
+          { title: 'Continuity between qualified workers', summary: 'The next person can continue where the last one stopped.', copy: 'If a night technician isolates a water issue but cannot finish, the morning technician sees the exact task state, photos, readings, parts needed, shutoff status, and unresolved risk.', risk: 'Only qualified workers should receive procedural guidance for specialized work.', change: 'The building becomes a guidance layer and handoff memory, reducing repeat troubleshooting and unsafe assumptions.' }
+        ]
+      },
+      industrial: {
+        title: 'Industrial / Manufacturing',
+        kicker: 'CAOS turns existing PLCs, controllers, sensors, alarms, and maintenance records into a technician-facing topology story.',
+        today: 'Machines already contain PLCs, controllers, onboard computers, sensors, and alarms, but many are old, vendor-specific, or poorly connected to repair history and parts information.',
+        caos: 'CAOS maps machine topology and relationships, compares alarms with maintenance history and sensor mismatches, suggests likely root-cause paths, prompts safe next steps, and preserves the repair record for the next downtime event.',
+        flow: ['Alarm appears', 'Map topology', 'Compare history', 'Check sensor mismatch', 'Guide safe test', 'Save repair record'],
+        oversight: 'Technicians remain responsible for lockout/tagout, physical diagnosis, and final repair decisions. CAOS supports root-cause thinking; it does not bypass safety rules or operate machinery autonomously.',
+        ariaPrompt: 'Explain the Industrial / Manufacturing CAOS scenario using PLCs, outdated controllers, topology mapping, alarms, maintenance history, sensor mismatch, parts path, root cause, safe steps, and repair records.',
+        points: [
+          { title: 'Outdated but usable controllers', summary: 'Old PLCs still produce valuable operational signals.', copy: 'A legacy controller may not be modern, but alarms, I/O states, cycle counts, fault codes, and timing patterns can still help tell the machine story.', risk: 'Unsupported equipment may have incomplete data and must be interpreted cautiously.', change: 'CAOS favors interoperability over replacement: pull usable signals into context instead of demanding a rip-and-replace project.' },
+          { title: 'Topology + relationship map', summary: 'Line, machine, component, sensor, and process relationships become visible.', copy: 'A packaging line issue may involve an upstream jam, downstream photo-eye, air pressure drop, or quality hold. CAOS shows relationships instead of a single isolated alarm.', risk: 'Topology is advisory unless verified against actual plant configuration.', change: 'Technicians can see the likely chain of influence before opening panels or chasing the wrong symptom.' },
+          { title: 'Alarms + history + parts path', summary: 'The repair path includes what failed before and how parts move.', copy: 'The system can compare today’s alarm with previous work orders, notes, replaced parts, calibration records, and whether a spare is on-site or must be ordered.', risk: 'Parts availability and procedure data must be kept current by humans and source systems.', change: 'Downtime response becomes a guided workflow from symptom to likely cause to part path to documented repair.' },
+          { title: 'Safe next steps + repair receipt', summary: 'Guidance and documentation happen in one flow.', copy: 'CAOS can prompt lockout checks, ask for a voltage reading, request a photo, and attach the final repair notes to the machine’s memory.', risk: 'Safety prompts are not a substitute for training, certification, or plant procedure.', change: 'The next technician inherits a trusted, auditable repair record instead of guessing from tribal knowledge.' }
+        ]
+      },
+      admin: {
+        title: 'Administrative Workflow Intelligence',
+        kicker: 'CAOS reduces everyday office friction without adding another backend or database to this static showcase.',
+        today: 'A receipt starts as a phone photo, gets emailed to self, downloaded on a computer, renamed, uploaded to a portal, and matched against P-card rules while duplicate forms and stale shared-drive templates create uncertainty.',
+        caos: 'A task-aware agent identifies the current document, flags stale duplicates, routes receipt evidence, tracks missing items, and keeps the workflow visible for the person who owns it.',
+        flow: ['Capture evidence', 'Find current form', 'Flag stale copies', 'Route receipt', 'Track missing items', 'Submit with audit'],
+        oversight: 'People approve submissions, spending, records, and policy decisions. CAOS organizes evidence and reminders; it does not invent receipts or authorize purchases.',
+        ariaPrompt: 'Explain the Administrative Workflow Intelligence CAOS scenario with shared drives, duplicate documents, P-card receipts, phone photo to email to portal friction, stale docs, routing evidence, and missing item tracking.',
+        points: [
+          { title: 'Shared-drive document truth', summary: 'Find the current file and warn about stale copies.', copy: 'When someone opens an old reimbursement form or duplicated SOP, CAOS can point to the approved version and explain why the other file appears stale.', risk: 'Document authority must come from approved repositories and human ownership.', change: 'Workers spend less time guessing which template is safe to use.' },
+          { title: 'P-card receipt routing', summary: 'Evidence moves from phone to workflow with less friction.', copy: 'The agent can accept a receipt photo, associate it with the task, remind the user what metadata is missing, and prepare the evidence for the correct portal step.', risk: 'Financial controls, approvals, and retention rules remain governed by the organization.', change: 'The painful phone → email → computer → portal chain becomes a guided evidence workflow.' },
+          { title: 'Missing item tracker', summary: 'The open loop stays visible.', copy: 'CAOS can show which receipt, approval, document field, or attachment is still missing before a deadline.', risk: 'The agent should not hide uncertainty or mark incomplete records as complete.', change: 'Administrative work becomes auditable and task-aware instead of memory-dependent.' }
+        ]
+      },
+      education: {
+        title: 'Education',
+        kicker: 'AI multiplies teacher reach while teachers remain the authority.',
+        today: 'A teacher balances whole-class instruction, individual pacing, language needs, accommodations, parent messages, staff updates, behavior notes, and multiple platforms at once.',
+        caos: 'CAOS can help each student receive individualized AI support aligned to teacher-approved plans, adaptive pacing, language support, accommodations, and communication needs.',
+        flow: ['Teacher sets goals', 'Student gets support', 'Adapt pacing', 'Surface needs', 'Draft communication', 'Teacher approves'],
+        oversight: 'Teachers, schools, families, and approved staff govern instruction, accommodations, and communication. AI supports; it does not replace educators or make final judgments.',
+        ariaPrompt: 'Explain the Education CAOS scenario where teachers remain authority and AI supports individualized pacing, language support, accommodations, and parent or staff communication.',
+        points: [
+          { title: 'Individualized support', summary: 'Different students can get different help at the same time.', copy: 'One student may need a simpler explanation, another needs enrichment, another needs language scaffolding, and another needs accommodation reminders.', risk: 'Support must align with teacher intent, student privacy, and school policy.', change: 'The teacher can reach more students without giving up authority.' },
+          { title: 'Communication support', summary: 'Drafts help reduce workload while humans approve.', copy: 'CAOS can draft parent updates, staff notes, or accommodation reminders based on approved context.', risk: 'Sensitive communication must be reviewed by authorized school staff.', change: 'Teachers spend less time rewriting context and more time leading instruction.' }
+        ]
+      },
+      care: {
+        title: 'Senior Care / Healthcare',
+        kicker: 'Care continuity improves when resident awareness, handoffs, and boundaries are explicit.',
+        today: 'Staff manage call lights, reminders, resident preferences, behavior changes, family questions, shift notes, and medical/non-medical boundaries under time pressure.',
+        caos: 'CAOS supports resident-aware reminders, staff handoffs, family-safe summaries, and behavior-change signals while keeping clinical authority with qualified humans.',
+        flow: ['Resident need', 'Check context', 'Notify staff', 'Document handoff', 'Summarize safely', 'Escalate to clinician'],
+        oversight: 'CAOS supports caregivers and clinicians; it does not diagnose, prescribe, replace staff, or claim medical authority.',
+        ariaPrompt: 'Explain the Senior Care / Healthcare CAOS scenario with resident awareness, staff handoffs, family-safe summaries, reminders, behavior change signals, and clear medical boundaries.',
+        points: [
+          { title: 'Resident awareness', summary: 'Preferences and reminders help care feel personal.', copy: 'Staff can see non-sensitive context like preferred routine, reminders, open requests, and recent handoff notes before entering the room.', risk: 'Resident privacy and consent boundaries must be respected.', change: 'Care feels less fragmented because context follows the work.' },
+          { title: 'Behavior-change signals', summary: 'Patterns can be surfaced for human review.', copy: 'If reminders are missed more often or a resident’s routine changes, CAOS can flag a non-diagnostic observation for staff review.', risk: 'Signals are not medical conclusions.', change: 'Staff get earlier awareness while clinicians decide what it means.' },
+          { title: 'Family-safe summaries', summary: 'Updates can be helpful without exposing protected details.', copy: 'CAOS can help draft approved summaries about general wellbeing, activities, or completed non-medical tasks.', risk: 'Protected health information and medical interpretation require policy-controlled review.', change: 'Families receive clearer communication while staff stay in control.' }
+        ]
+      },
+      emergency: {
+        title: 'Emergency / 911',
+        kicker: 'Adaptive communication and structured context support dispatchers under pressure.',
+        today: 'A caller may be panicked, injured, unsure of location, or unable to answer in sequence while dispatchers manage protocols, maps, units, and handoffs.',
+        caos: 'CAOS can adapt communication, help calm the caller, gather missing context, structure facts, and prepare handoff summaries while dispatch authority remains human.',
+        flow: ['Receive call', 'Calm caller', 'Gather context', 'Flag missing facts', 'Summarize handoff', 'Dispatcher decides'],
+        oversight: 'AI does not replace dispatchers, incident command, emergency protocols, or responder authority.',
+        ariaPrompt: 'Explain the Emergency / 911 CAOS scenario with adaptive communication, caller calming, context gathering, handoff summaries, and dispatch authority boundaries.',
+        points: [
+          { title: 'Adaptive caller communication', summary: 'Prompts match caller stress and ability.', copy: 'The system can suggest shorter questions, plain language, or grounding prompts when a caller is overwhelmed.', risk: 'Approved protocols and dispatcher judgment always lead.', change: 'The dispatcher gets support staying calm and complete under pressure.' },
+          { title: 'Context gathering', summary: 'Missing facts become visible.', copy: 'Location, immediate danger, callback number, relevant conditions, and responder notes can be tracked as structured fields.', risk: 'Incomplete or uncertain facts must be labeled as such.', change: 'Handoffs become clearer without slowing the human operator.' }
+        ]
+      },
+      security: {
+        title: 'Security / Safety',
+        kicker: 'Visitor identity, purpose, temporary access, unusual presence, and audit trails align with privacy boundaries.',
+        today: 'A visitor badge, contractor purpose, access-card log, camera note, door event, and incident report may all live in different systems.',
+        caos: 'CAOS connects identity, purpose, permission, temporary access, unusual presence awareness, and audit trails through a governed interface.',
+        flow: ['Verify visitor', 'Confirm purpose', 'Grant scoped access', 'Monitor exception', 'Log event', 'Review boundary'],
+        oversight: 'Security teams and approved policies control escalation. CAOS supports awareness and documentation; it does not autonomously enforce or surveil beyond permission boundaries.',
+        ariaPrompt: 'Explain the Security / Safety CAOS scenario with visitor identity, contractor or vendor purpose, temporary access, unusual presence awareness, audit trail, privacy and permission boundaries.',
+        points: [
+          { title: 'Visitor + vendor purpose', summary: 'Who, why, where, and for how long are connected.', copy: 'A vendor visit can be tied to a work order, host, destination, access window, and required escort status.', risk: 'Identity and purpose data must be collected only as allowed by policy.', change: 'Front desk, security, and operations share the same trusted context.' },
+          { title: 'Unusual presence awareness', summary: 'Exceptions are surfaced, not overclaimed.', copy: 'If a person is near an area unrelated to their approved purpose, CAOS can flag the mismatch for human review.', risk: 'False positives and privacy impacts must be managed carefully.', change: 'Security becomes context-aware and auditable without promising autonomous enforcement.' }]
+      },
+      training: {
+        title: 'Workforce Training',
+        kicker: 'New workers start with continuity, role-specific instructions, mentor visibility, safety prompts, and skill-growth records.',
+        today: 'A new worker relies on busy mentors, scattered manuals, old notes, and memory of what happened on the last shift.',
+        caos: 'CAOS provides guided continuity: what the task is, what happened before, which instructions match the worker’s role, which safety prompts matter, and what the mentor should review.',
+        flow: ['Assign task', 'Hydrate history', 'Show role steps', 'Prompt safety', 'Mentor reviews', 'Record growth'],
+        oversight: 'Mentors, supervisors, trainers, and safety rules govern work. AI coaches and documents but does not certify competence by itself.',
+        ariaPrompt: 'Explain the Workforce Training CAOS scenario with guided continuity, role-specific instructions, mentor visibility, safety prompts, and skill growth records.',
+        points: [
+          { title: 'Guided continuity', summary: 'The new worker sees where the work left off.', copy: 'Before starting, the worker can see prior notes, open risks, required tools, and the next approved step.', risk: 'Instructions must match the worker’s authorization and training level.', change: 'New workers waste less time and make fewer unsafe assumptions.' },
+          { title: 'Mentor visibility', summary: 'Supervisors can see progress and intervene.', copy: 'A mentor can review what guidance was shown, what questions were asked, and where the worker hesitated.', risk: 'Skill records should support coaching, not punitive hidden tracking.', change: 'Training becomes transparent, supportive, and easier to personalize.' }]
+      }
+    };
+
+    const industryCards = document.querySelectorAll('.interactive-card');
+    const detailTitle = document.getElementById('detail-title');
+    const detailKicker = document.getElementById('detail-kicker');
+    const detailToday = document.getElementById('detail-today');
+    const detailCaos = document.getElementById('detail-caos');
+    const detailPoints = document.getElementById('detail-points');
+    const pointTitle = document.getElementById('point-title');
+    const pointCopy = document.getElementById('point-copy');
+    const pointRisk = document.getElementById('point-risk');
+    const pointChange = document.getElementById('point-change');
+    const detailFlow = document.getElementById('detail-flow');
+    const detailOversight = document.getElementById('detail-oversight');
+    const detailAriaButton = document.getElementById('detail-aria-button');
+    let activeIndustry = 'building';
+
+    function renderPoint(scenario, index) {
+      const point = scenario.points[index];
+      document.querySelectorAll('.point-button').forEach((button, buttonIndex) => {
+        button.classList.toggle('active', buttonIndex === index);
+        button.setAttribute('aria-selected', String(buttonIndex === index));
+      });
+      pointTitle.textContent = point.title;
+      pointCopy.textContent = point.copy;
+      pointRisk.textContent = point.risk;
+      pointChange.textContent = point.change;
+    }
+
+    function renderIndustry(key, shouldScroll = false) {
+      const scenario = industryScenarios[key];
+      if (!scenario) return;
+      activeIndustry = key;
+      industryCards.forEach(card => {
+        const isActive = card.dataset.industry === key;
+        card.classList.toggle('active', isActive);
+        card.setAttribute('aria-expanded', String(isActive));
+      });
+      detailTitle.textContent = scenario.title;
+      detailKicker.textContent = scenario.kicker;
+      detailToday.textContent = scenario.today;
+      detailCaos.textContent = scenario.caos;
+      detailOversight.textContent = scenario.oversight;
+      detailPoints.innerHTML = '';
+      scenario.points.forEach((point, index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = `point-button${index === 0 ? ' active' : ''}`;
+        button.setAttribute('role', 'tab');
+        button.setAttribute('aria-selected', String(index === 0));
+        button.innerHTML = `<strong>${point.title}</strong><span>${point.summary}</span>`;
+        button.addEventListener('click', () => renderPoint(scenario, index));
+        detailPoints.appendChild(button);
+      });
+      detailFlow.innerHTML = scenario.flow.map(step => `<div class="flow-step"><span>${step}</span></div>`).join('');
+      renderPoint(scenario, 0);
+      if (shouldScroll) {
+        document.getElementById('industry-detail').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    industryCards.forEach(card => {
+      card.addEventListener('click', event => {
+        if (event.target.closest('button')) {
+          event.preventDefault();
+        }
+        renderIndustry(card.dataset.industry, true);
+      });
+      card.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          renderIndustry(card.dataset.industry, true);
+        }
+      });
+    });
+
+    detailAriaButton.addEventListener('click', () => {
+      setAriaOpen(true);
+      askAria(industryScenarios[activeIndustry].ariaPrompt);
+    });
+
+    renderIndustry(activeIndustry);
 
 
     const ariaPanel = document.getElementById('aria-panel');
