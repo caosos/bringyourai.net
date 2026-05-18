@@ -84,6 +84,8 @@
     .rule { background: rgba(255,255,255,0.055); border: 1px solid var(--line); padding: 14px 16px; border-radius: 18px; color: var(--ink); font-weight: 700; }
 
     .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .inline-link { color: var(--accent-bright); font-weight: 800; text-underline-offset: 0.18em; }
+    .paper .inline-link { color: #8a5a24; }
     .button {
       display: inline-flex;
       align-items: center;
@@ -871,6 +873,8 @@
         <a href="#systems-showcase">Industry Showcase</a>
         <a href="#caos">CAOS</a>
         <a href="#care">CAOS Care</a>
+        <a href="https://caosos.com">Visit CAOS</a>
+        <a href="https://caoscare.com">Visit CAOS Care</a>
         <a href="#resume">Resume</a>
       </div>
     </div>
@@ -893,6 +897,8 @@
             <a class="button" href="#mission">Explore the Mission</a>
             <a class="button secondary" href="#systems-showcase">Industry Showcase</a>
             <a class="button secondary" href="#experience">Work History</a>
+            <a class="button secondary" href="https://caosos.com">Visit CAOS</a>
+            <a class="button secondary" href="https://caoscare.com">Visit CAOS Care</a>
           </div>
         </div>
         <div class="visual-card">
@@ -929,7 +935,11 @@
           <div>
             <div class="eyebrow">CAOS industry showcase · governed operational intelligence layer</div>
             <h2>One trusted AI layer over the systems people already run.</h2>
-            <p class="sub">CAOS is presented here as a concept and prototype direction: not a single app, not a replacement for professionals, and not a claim of live deployments. The showcase visualizes how governed AI guidance could coordinate existing tools, sensors, records, alerts, work orders, and human decisions through one operational interface.</p>
+            <p class="sub">CAOS is presented here as a concept and prototype direction: not a single app, not a replacement for professionals, and not a claim of live deployments. The showcase visualizes how governed AI guidance could coordinate existing tools, sensors, records, alerts, work orders, and human decisions through one operational interface. The related CAOS ecosystem domain is <a class="inline-link" href="https://caosos.com">caosos.com</a>.</p>
+            <div class="actions">
+              <a class="button" href="https://caosos.com">Visit CAOS</a>
+              <a class="button secondary" href="https://caoscare.com">Visit CAOS Care</a>
+            </div>
           </div>
           <div class="layer-visual" aria-label="Concept diagram showing CAOS coordinating humans, systems, sensors, and workflows">
             <div class="layer-node human" aria-hidden="true">👤</div>
@@ -1087,7 +1097,12 @@
           </div>
           <div class="flow-chain" id="detail-flow" aria-label="Scenario flow chain"></div>
           <div class="oversight-note"><strong>Human oversight / safety note:</strong> <span id="detail-oversight"></span></div>
-        </section>      </div>
+          <div class="actions">
+            <a class="button" href="https://caosos.com">Visit CAOS</a>
+            <a class="button secondary" href="https://caoscare.com">Visit CAOS Care</a>
+          </div>
+        </section>
+      </div>
     </section>
 
     <section id="michael" class="wrap">
@@ -1243,7 +1258,7 @@
     <section id="caos" class="wrap">
       <div class="section-card">
         <h2>CAOS</h2>
-        <p class="sub">CAOS is a governed AI operating-layer concept: an architecture for memory-aware, tool-connected, workflow-driven AI that remains visible and accountable to the user.</p>
+        <p class="sub">CAOS is a governed AI operating-layer concept: an architecture for memory-aware, tool-connected, workflow-driven AI that remains visible and accountable to the user. Its related ecosystem domain / public concept site is <a class="inline-link" href="https://caosos.com">caosos.com</a>.</p>
         <div class="architecture-list">
           <div class="arch-item"><strong>Memory Systems</strong>Structured context instead of one unmanaged conversation.</div>
           <div class="arch-item"><strong>Context Hydration</strong>Pulling the right context into the right task at the right time.</div>
@@ -1254,17 +1269,25 @@
           <div class="arch-item"><strong>Explicit Learning</strong>No silent mutation; learning should be deliberate and correctable.</div>
           <div class="arch-item"><strong>Governance</strong>User rules, safety boundaries, and stop gates around agent action.</div>
         </div>
+        <div class="actions">
+          <a class="button" href="https://caosos.com">Visit CAOS</a>
+          <a class="button secondary" href="https://bringyourai.net">Visit BringYourAI</a>
+        </div>
       </div>
     </section>
 
     <section id="care" class="wrap">
       <div class="section-card paper">
         <h2>CAOS Care</h2>
-        <p class="sub">CAOS Care is the senior-care application layer: practical AI support for residents, staff, reminders, alerts, documentation, and assistive workflows. It is intended as a human-supervised support layer, not an autonomous medical decision-maker.</p>
+        <p class="sub">CAOS Care is the senior-care application layer: practical AI support for residents, staff, reminders, alerts, documentation, and assistive workflows. It is intended as a human-supervised support layer, not an autonomous medical decision-maker. Its related ecosystem domain / public concept site is <a class="inline-link" href="https://caoscare.com">caoscare.com</a>.</p>
         <div class="grid-3">
           <div class="mini-card"><h3>Resident Support</h3><p>Voice-first assistance, reminders, simple requests, reassurance, and context continuity.</p></div>
           <div class="mini-card"><h3>Staff Support</h3><p>Workflow routing, documentation support, task visibility, and operational prioritization.</p></div>
           <div class="mini-card"><h3>Wearable / Device Layer</h3><p>Pendant-style devices, tablets, voice interfaces, and environmental signals connected to governed workflows.</p></div>
+        </div>
+        <div class="actions">
+          <a class="button" href="https://caoscare.com">Visit CAOS Care</a>
+          <a class="button secondary" href="https://caosos.com">Visit CAOS</a>
         </div>
       </div>
     </section>
@@ -1274,9 +1297,9 @@
         <h2>Projects / Ecosystem</h2>
         <p class="sub">These are connected layers of the same public direction: identity, platform, product application, and professional proof.</p>
         <div class="grid-3">
-          <div class="mini-card"><h3>Bring Your AI</h3><p>The mission layer: user-owned AI, portability, memory, devices, and human governance.</p></div>
-          <div class="mini-card"><h3>CAOS</h3><p>The platform layer: memory, orchestration, tools, receipts, routing, and governed execution.</p></div>
-          <div class="mini-card"><h3>CAOS Care</h3><p>The application layer: senior-care workflows, staff support, resident support, and assistive systems.</p></div>
+          <div class="mini-card"><h3>Bring Your AI</h3><p>The mission layer: user-owned AI, portability, memory, devices, and human governance.</p><div class="actions"><a class="button secondary" href="https://bringyourai.net">Visit BringYourAI</a></div></div>
+          <div class="mini-card"><h3>CAOS</h3><p>The platform layer: memory, orchestration, tools, receipts, routing, and governed execution.</p><div class="actions"><a class="button" href="https://caosos.com">Visit CAOS</a></div></div>
+          <div class="mini-card"><h3>CAOS Care</h3><p>The application layer: senior-care workflows, staff support, resident support, and assistive systems.</p><div class="actions"><a class="button" href="https://caoscare.com">Visit CAOS Care</a></div></div>
         </div>
       </div>
     </section>

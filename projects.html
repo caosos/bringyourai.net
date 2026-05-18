@@ -57,7 +57,8 @@
     .prototype { color: var(--blue); }
     .needs-work { color: var(--red); }
     .concept { color: var(--accent-bright); }
-    .button { margin-top: auto; display: inline-flex; justify-content: center; border-radius: 999px; background: var(--accent); color: #141414; padding: 10px 14px; text-decoration: none; font-weight: 800; }
+    .button-row { margin-top: auto; display: flex; flex-wrap: wrap; gap: 10px; }
+    .button { display: inline-flex; justify-content: center; border-radius: 999px; background: var(--accent); color: #141414; padding: 10px 14px; text-decoration: none; font-weight: 800; }
     .button.secondary { background: transparent; color: inherit; border: 1px solid currentColor; }
     .notes { display: grid; gap: 12px; }
     .note { border-left: 4px solid var(--accent); padding: 12px 14px; background: rgba(255,255,255,.045); border-radius: 14px; color: var(--muted); }
@@ -82,7 +83,7 @@
   <header class="wrap">
     <div class="eyebrow">Working projects · prototypes · owned domains · recovery map</div>
     <h1>Project Portfolio</h1>
-    <p class="lead">This is the proof wall: public links, working prototypes, domain assets, and product directions connected to Michael Chambers, Bring Your AI, CAOS, and CAOS Care.</p>
+    <p class="lead">This is the proof wall: public links, working prototypes, domain assets, and product directions connected to Michael Chambers, Bring Your AI, CAOS, and CAOS Care. The core ecosystem domains are BringYourAI.net, caosos.com, and caoscare.com.</p>
   </header>
 
   <main>
@@ -95,19 +96,22 @@
             <span class="status live">LIVE</span>
             <h3>Bring Your AI</h3>
             <p>Public mission, resume, and AI systems portfolio layer. Currently hosted through GitHub Pages while the owned domain path is finalized.</p>
-            <a class="button" href="https://caosos.github.io/bringyourai.net/" target="_blank" rel="noopener">Open Site</a>
+            <div class="button-row"><a class="button" href="https://bringyourai.net">Open Site</a></div>
           </article>
           <article class="project">
             <span class="status live">LIVE</span>
             <h3>CAOS</h3>
             <p>Public CAOS domain describing the Cognitive Adaptive Operating System concept and current public platform identity.</p>
-            <a class="button" href="https://caosos.com" target="_blank" rel="noopener">Open CAOS</a>
+            <div class="button-row"><a class="button" href="https://caosos.com">Visit CAOS</a></div>
           </article>
           <article class="project">
             <span class="status prototype">PREVIEW</span>
             <h3>CAOS Care Node</h3>
-            <p>Base44 preview prototype for senior-care kiosk / call-system concepts, staff dashboard, wearables, accessibility, and AI companion surfaces.</p>
-            <a class="button" href="https://caos-care-link.base44.app" target="_blank" rel="noopener">Open Preview</a>
+            <p>Base44 preview prototype for senior-care kiosk / call-system concepts, staff dashboard, wearables, accessibility, and AI companion surfaces. CAOS Care also has a related public concept domain.</p>
+            <div class="button-row">
+              <a class="button" href="https://caoscare.com">Visit CAOS Care</a>
+              <a class="button secondary" href="https://caos-care-link.base44.app">Open Preview</a>
+            </div>
           </article>
         </div>
       </div>
@@ -122,19 +126,25 @@
             <span class="status prototype">PROTOTYPE</span>
             <h3>CAOS Chat Prototype</h3>
             <p>Base44 chat prototype showing CAOS conversation interface, model controls, memory/context framing, and AI workbench direction.</p>
-            <a class="button secondary" href="https://caos-chat-9c5683d8.base44.app/Chat" target="_blank" rel="noopener">Open Prototype</a>
+            <div class="button-row"><a class="button secondary" href="https://caos-chat-9c5683d8.base44.app/Chat">Open Prototype</a></div>
           </article>
           <article class="project">
             <span class="status prototype">REFERENCE</span>
             <h3>CAOS Public Repository</h3>
             <p>Public clean-rebuild repository for CAOS architecture, public docs, roadmap, and AI-readable project framing.</p>
-            <a class="button secondary" href="https://github.com/caosos/caosai.net" target="_blank" rel="noopener">Open Repo</a>
+            <div class="button-row">
+              <a class="button" href="https://caosos.com">Visit CAOS</a>
+              <a class="button secondary" href="https://github.com/caosos/caosai.net">Open Repo</a>
+            </div>
           </article>
           <article class="project">
             <span class="status prototype">REFERENCE</span>
             <h3>CAOS Care Repository</h3>
             <p>Private/active CAOS Care build direction repository. Public site should avoid exposing private implementation details or sensitive operational data.</p>
-            <a class="button secondary" href="https://github.com/caosos/CAOSCARE.COM" target="_blank" rel="noopener">Open Repo</a>
+            <div class="button-row">
+              <a class="button" href="https://caoscare.com">Visit CAOS Care</a>
+              <a class="button secondary" href="https://github.com/caosos/CAOSCARE.COM">Open Repo</a>
+            </div>
           </article>
         </div>
       </div>
@@ -149,37 +159,37 @@
             <span class="status live">ACTIVE DIRECTION</span>
             <h3>bringyourai.net</h3>
             <p>Primary public mission / professional identity layer. Should eventually replace the GitHub Pages preview URL.</p>
-            <a class="button" href="https://bringyourai.net" target="_blank" rel="noopener">Try Domain</a>
+            <div class="button-row"><a class="button" href="https://bringyourai.net">Visit BringYourAI</a></div>
           </article>
           <article class="project">
             <span class="status live">ACTIVE</span>
             <h3>caosos.com</h3>
             <p>Public CAOS identity and platform explanation.</p>
-            <a class="button" href="https://caosos.com" target="_blank" rel="noopener">Open Domain</a>
+            <div class="button-row"><a class="button" href="https://caosos.com">Visit CAOS</a></div>
           </article>
           <article class="project">
             <span class="status needs-work">NEEDS VERIFY</span>
             <h3>caoscare.com</h3>
             <p>Intended CAOS Care product domain. Needs DNS/deployment verification against the current owned build target.</p>
-            <a class="button secondary" href="https://caoscare.com" target="_blank" rel="noopener">Try Domain</a>
+            <div class="button-row"><a class="button secondary" href="https://caoscare.com">Visit CAOS Care</a></div>
           </article>
           <article class="project">
             <span class="status needs-work">NEEDS RECOVERY</span>
             <h3>CAOS Connect</h3>
             <p>Owned/built concept site according to project history. Current working URL and deployment target need verification.</p>
-            <a class="button secondary" href="#recovery">Recovery Notes</a>
+            <div class="button-row"><a class="button secondary" href="#recovery">Recovery Notes</a></div>
           </article>
           <article class="project">
             <span class="status needs-work">NEEDS RECOVERY</span>
             <h3>CAOS Trainings</h3>
             <p>Owned/built concept site according to project history. Likely affected by old Emergent/Base44 deployment coupling.</p>
-            <a class="button secondary" href="#recovery">Recovery Notes</a>
+            <div class="button-row"><a class="button secondary" href="#recovery">Recovery Notes</a></div>
           </article>
           <article class="project">
             <span class="status concept">PLANNED MAP</span>
             <h3>Domain Inventory</h3>
             <p>Next step is a full table of registrar, DNS target, platform target, repo, live URL, and current status for every domain.</p>
-            <a class="button secondary" href="mailto:mytaxicloud@gmail.com">Send Updates</a>
+            <div class="button-row"><a class="button secondary" href="mailto:mytaxicloud@gmail.com">Send Updates</a></div>
           </article>
         </div>
       </div>

@@ -10,6 +10,16 @@ This is not a deployment claim, partnership claim, medical claim, or promise of 
 
 ---
 
+## Public Ecosystem Domains
+
+- **BringYourAI** — https://bringyourai.net — public mission, professional identity, systems portfolio, and proof-of-thinking site.
+- **CAOS** — https://caosos.com — related ecosystem domain / public concept site for the core Adaptive Operational Environments framework.
+- **CAOS Care** — https://caoscare.com — related ecosystem domain / public concept site for the senior-care vertical direction.
+
+These links identify public ecosystem surfaces only. They should not be treated as deployment, partnership, medical, emergency-response, or production-readiness claims.
+
+---
+
 ## Canonical Ecosystem Map
 
 ### CAOS
