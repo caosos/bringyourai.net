@@ -113,6 +113,12 @@ physical systems ↔ AI systems
 
 # Project Ecosystem
 
+## Ecosystem domains
+
+- BringYourAI — https://bringyourai.net — public mission, professional identity, and systems portfolio site.
+- CAOS — https://caosos.com — related ecosystem domain / public concept site for the core CAOS operating-layer direction.
+- CAOS Care — https://caoscare.com — related ecosystem domain / public concept site for the senior-care vertical direction.
+
 The canonical public-safe ecosystem reference starts with:
 
 - `docs/ecosystem-overview.md`
