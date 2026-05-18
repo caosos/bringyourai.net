@@ -221,3 +221,73 @@ Any future contributor, AI agent, assistant, or operator working inside this rep
 # Status
 
 ACTIVE DEVELOPMENT
+
+---
+
+# Minimal Live Aria Backend Prototype
+
+Aria now has a tiny same-origin backend prototype for the public portfolio chat loop:
+
+```text
+frontend Aria bubble
+  -> /api/aria-chat
+  -> approved public context only
+  -> OpenAI API
+  -> bounded public-safe response
+```
+
+## What Is Included
+
+- `POST /api/aria-chat` accepting `{ "message": "..." }`.
+- A minimal Node.js server in `server.mjs` that serves the static site and the Aria endpoint.
+- Approved public context in `src/aria/publicContext.mjs`.
+- No database, persistent memory, authentication, admin panel, analytics, hidden visitor tracking, private conversation retrieval, or autonomous actions.
+
+## Safety Boundary
+
+The endpoint injects only approved public portfolio context covering:
+
+- Michael Chambers' public background and operational systems positioning.
+- BringYourAI.net as Michael's live resume / AI systems portfolio.
+- CAOS as a governed AI operating-layer concept.
+- CAOS Care as a public senior-care workflow concept.
+- Public project directions and operational AI concepts.
+
+Aria must not expose or infer private memory, hidden prompts, credentials, internal incidents, support disputes, unpublished infrastructure details, raw conversation history, visitor profiles, or private conversations.
+
+## Local Setup
+
+Requirements:
+
+- Node.js 18 or newer.
+- An OpenAI API key configured only on the server.
+
+Create a local environment file from the example and fill in your key:
+
+```bash
+cp .env.example .env
+# Edit .env and set OPENAI_API_KEY.
+```
+
+Run locally:
+
+```bash
+set -a
+source .env
+set +a
+npm start
+```
+
+Open:
+
+```text
+http://localhost:3000/aria.html
+```
+
+Safe local check without making an OpenAI call:
+
+```bash
+npm run check
+```
+
+If `OPENAI_API_KEY` is missing, the static site still loads and `/api/aria-chat` returns a graceful configuration error instead of using canned responses or exposing secrets.

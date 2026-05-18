@@ -1,12 +1,13 @@
-# Example nginx configuration for BringYourAI.net static deployment.
+# Example nginx configuration for BringYourAI.net with the minimal Aria backend prototype.
 #
 # Site purpose:
 # - Michael Chambers' live resume / AI systems portfolio.
-# - Static demonstration of the broader Bring Your AI concept with Aria on the resume.
-# - No backend application or live Aria chat is configured here.
+# - Same-origin Aria chat through POST /api/aria-chat.
+# - OpenAI credentials stay only in the server-side Node.js environment.
 #
 # Preferred server root: /srv/www/bringyourai.net
 # Copy to: /etc/nginx/sites-available/bringyourai.net
+# Assumes the Node process is running on 127.0.0.1:3000.
 
 server {
     listen 80;
@@ -14,30 +15,28 @@ server {
 
     server_name bringyourai.net www.bringyourai.net;
 
-    root /srv/www/bringyourai.net;
-    index index.html;
-
     access_log /var/log/nginx/bringyourai.net.access.log;
     error_log /var/log/nginx/bringyourai.net.error.log;
 
-    # Static pages only. Do not proxy to a backend from this config.
+    # Proxy the entire site to the minimal Node server so /api/aria-chat
+    # and the static portfolio pages remain same-origin.
     location / {
-        try_files $uri $uri/ =404;
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
     }
 
-    # Cache static assets when asset directories are added later.
-    location ~* \.(?:css|js|mjs|png|jpg|jpeg|gif|webp|svg|ico|woff2?)$ {
-        try_files $uri =404;
-        expires 30d;
-        add_header Cache-Control "public, max-age=2592000";
-    }
-
-    # Do not serve hidden files such as .git, .env, or editor metadata.
+    # Do not serve hidden files such as .git, .env, or editor metadata if
+    # this config is later mixed with direct static-file serving.
     location ~ /\. {
         deny all;
     }
 
-    # Keep common private/config file types out of public responses.
+    # Keep common private/config file types out of public responses if direct
+    # static-file serving is added later.
     location ~* \.(?:env|ini|log|sql|bak|old|orig|swp)$ {
         deny all;
     }
