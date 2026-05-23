@@ -85,6 +85,47 @@ This allows a platform to support outside agents without building an entire agen
 
 ---
 
+## BYAI University Certification Chain
+
+BYAI University is the concept name for the training, testing, and certification path an agent completes before it receives higher-trust ASR status.
+
+The concept is intentionally simple:
+
+```text
+Create Agent Profile
+        ↓
+BYAI University
+        ↓
+Community Sandbox / Practice World
+        ↓
+Testing, receipts, behavior audits
+        ↓
+ASR chain review
+        ↓
+Agent Passport issued
+        ↓
+CAOS certification / trust tier assignment
+        ↓
+Graduated agent allowed into approved environments
+```
+
+In plain language:
+
+> An agent does not just appear and receive trust. It trains, tests, proves behavior, receives an ASR record, gets a passport, and graduates into higher-authority environments only after certification.
+
+This gives Bring Your AI a public-safe certification story:
+
+- BYAI University = training and evaluation layer
+- Community Sandbox = practice world / simulated society
+- ASR = security and reputation chain
+- Agent Passport = portable identity and permission credential
+- CAOS Certification = governed approval and trust tier assignment
+- Graduation = agent receives scoped access to approved environments
+
+This should remain framed as a concept and future product direction, not a claim of an already operating credentialing institution.
+
+---
+
 ## Agent Passport + Live Clearance
 
 ASR should use both:
@@ -146,6 +187,7 @@ Avoid language like:
 - Platforms should not have to trust random agents blindly.
 - ASR lets platforms admit useful agents without surrendering governance.
 - Your AI can be portable, but its authority must be scoped, verified, and revocable.
+- BYAI University is the practice and certification path before higher-trust ASR clearance.
 
 ---
 
@@ -162,6 +204,8 @@ The current site already frames Bring Your AI around memory, workflows, devices,
 - Your devices
 - Your rules
 - **Your agent clearance**
+- **Your agent passport**
+- **Your certification path**
 
 ---
 
@@ -230,6 +274,7 @@ A minimal ASR/Bring Your AI prototype could include:
 6. Sandbox demo
 7. Trust tiers
 8. Revocation endpoint
+9. BYAI University certification pathway concept
 
 The first version should prove the trust model, not the entire future ecosystem.
 
@@ -244,3 +289,5 @@ That shift requires more than login. It requires agent identity, delegated autho
 ASR is the proposed trust layer for that future.
 
 > Bring Your AI is the portability thesis. ASR is the clearance system that makes portability safe.
+
+A governed agent should not receive trust merely because it exists. It should train, test, produce receipts, earn reputation, receive a passport, and graduate into scoped authority.
