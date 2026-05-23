@@ -124,6 +124,8 @@ The canonical public-safe ecosystem reference starts with:
 - `docs/ecosystem-overview.md`
 - `docs/adaptive-operational-environments.md`
 - `docs/bring-your-ai-thesis.md`
+- `docs/bring-your-ai-asr-thesis.md`
+- `docs/asr-agent-security-reputation-blueprint.md`
 - `docs/caos-operational-philosophy.md`
 - `docs/future-verticals-and-environments.md`
 - `docs/architecture-concepts-index.md`
@@ -142,7 +144,9 @@ BringYourAI is the portability and public identity thesis of the ecosystem.
 
 Core thesis:
 
-Users may eventually carry trusted AI continuity, memory, workflows, identity, and rules between environments while organizations maintain governance, permissions, compliance boundaries, and auditability. BringYourAI.net is currently the public demonstration layer: a professional identity space, systems portfolio, architecture narrative, and proof-of-thinking platform.
+Users may eventually carry trusted AI continuity, memory, workflows, identity, rules, and agent clearance between environments while organizations maintain governance, permissions, compliance boundaries, and auditability. BringYourAI.net is currently the public demonstration layer: a professional identity space, systems portfolio, architecture narrative, and proof-of-thinking platform.
+
+ASR — Agent Security Reputation — extends this thesis by describing a portable trust, clearance, and reputation layer for user-owned AI agents.
 
 ---
 
@@ -166,6 +170,8 @@ These ideas are documented but are NOT current implementation priority:
 
 - unified identity layer
 - AI portability
+- agent security reputation
+- portable agent clearance
 - local desktop AI workbench
 - local+cloud memory systems
 - persistent user-owned AI
@@ -176,6 +182,8 @@ References:
 
 - `docs/ecosystem-overview.md`
 - `docs/bring-your-ai-thesis.md`
+- `docs/bring-your-ai-asr-thesis.md`
+- `docs/asr-agent-security-reputation-blueprint.md`
 - `docs/bringyourai-identity-and-local-ai-concepts.md`
 
 ---
