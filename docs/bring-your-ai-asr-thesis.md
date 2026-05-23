@@ -85,6 +85,31 @@ This allows a platform to support outside agents without building an entire agen
 
 ---
 
+## Credit-Card Style Authorization Network
+
+ASR can be understood partly like a credit-card authorization network, except for agent authority instead of payment alone.
+
+A credit card is not trusted merely because a person holds a plastic card or saved number. The merchant checks whether the account is active, whether the transaction type is allowed, whether the amount exceeds limits, whether the location looks suspicious, whether the card network is accepted, and whether the issuer approves the transaction at that moment.
+
+ASR should work similarly for agents:
+
+- The agent has a credential, but the credential is not enough by itself.
+- The platform calls the ASR trust layer for live authorization.
+- The agent has limits on what it can do.
+- Some platforms may accept it and others may not.
+- Some actions may be approved while others are blocked.
+- Risky behavior can trigger downgrade, review, or denial.
+- Dormant or stale agents may require revalidation.
+- Every meaningful action should generate a receipt.
+
+Useful analogy:
+
+> ASR is like a card network for AI-agent authority: accepted only by participating platforms, limited by scope, checked live, revocable, and updated through transaction-like receipts.
+
+This does not mean ASR is literally a payment processor. It means the authorization pattern is similar: portable credential plus live approval plus scoped limits plus fraud/risk controls.
+
+---
+
 ## BYAI University Certification Chain
 
 BYAI University is the concept name for the training, testing, and certification path an agent completes before it receives higher-trust ASR status.
@@ -251,6 +276,7 @@ Avoid language like:
 - ASR is the trust layer for user-owned AI agents.
 - Before your AI acts somewhere, it should present clearance.
 - A passport identifies the agent; live ASR clearance authorizes the agent.
+- ASR is like a card network for agent authority: scoped, live-checked, revocable, and accepted by participating platforms.
 - Platforms should not have to trust random agents blindly.
 - ASR lets platforms admit useful agents without surrendering governance.
 - Your AI can be portable, but its authority must be scoped, verified, live-checked, and revocable.
@@ -346,6 +372,7 @@ A minimal ASR/Bring Your AI prototype could include:
 8. Revocation endpoint
 9. Status freshness / revalidation rules
 10. BYAI University certification pathway concept
+11. Credit-card style authorization limits by action type, platform, risk level, and trust tier
 
 The first version should prove the trust model, not the entire future ecosystem.
 
