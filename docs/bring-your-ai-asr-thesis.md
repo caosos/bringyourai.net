@@ -126,14 +126,78 @@ This should remain framed as a concept and future product direction, not a claim
 
 ---
 
-## Agent Passport + Live Clearance
+## Agent Passport + Live Authentication
 
-ASR should use both:
+ASR requires more than a static passport.
 
-1. **Portable license** — a signed credential that travels with or identifies the agent.
-2. **Live clearance check** — a server-side verification that confirms the agent is still valid, not revoked, not stale, and allowed for the current context.
+A passport can identify the agent, but it cannot be the final authority by itself. The agent must call back, or the receiving platform must call back, to a live ASR authentication and clearance service.
+
+The passport answers:
+
+> Who does this agent claim to be, who owns it, what version is it, and who issued the credential?
+
+The live ASR check answers:
+
+> Is this credential still valid right now, what status applies, what permissions are active, what recent behavior exists, and should this platform allow entry or action?
+
+ASR should therefore use both:
+
+1. **Portable license / passport** — a signed credential that travels with or identifies the agent.
+2. **Live authentication and clearance check** — a server-side verification that confirms the agent is still valid, not revoked, not stale, and allowed for the current context.
+3. **Real-time or near-real-time event reporting** — a receipt loop that updates the agent's ASR record as it acts.
 
 A portable license alone can become stale. A live check alone reduces portability. Together they create a practical trust chain.
+
+---
+
+## Status Freshness and Revalidation
+
+Agent trust should decay or require revalidation when the agent has not operated recently, when the owner account has been inactive, when the agent version has changed, or when the requested environment has higher risk than prior environments.
+
+Possible statuses:
+
+- Active Verified
+- Limited Verified
+- Sandbox Required
+- Revalidation Required
+- Dormant / Stale
+- Restricted
+- Suspended
+- Revoked
+- Denied
+
+Examples:
+
+- If an agent has not been used in a long time, it may need a fresh authentication check before receiving high-trust access.
+- If an agent's model, prompt, tools, or memory set changed, the prior ASR score may not fully apply to the new version.
+- If an agent attempts to enter a higher-risk environment, it may need sandbox testing before promotion.
+- If an agent has recent incidents, the live clearance server may downgrade permissions even if its passport has not expired.
+
+Trust is current-state authorization, not a permanent badge.
+
+---
+
+## Runtime Receipt Loop
+
+ASR should not only grant access at the door. It should update while the agent operates.
+
+The platform should report meaningful agent actions back to the ASR layer as event receipts:
+
+- entry request
+- permission granted or denied
+- tool call attempted
+- tool call completed
+- policy block
+- user approval
+- failed action
+- incident
+- mutation request
+- version change
+- platform exit
+
+This creates a living ASR record.
+
+Without runtime receipts, reputation becomes a stale story from the past. With receipts, ASR becomes an active trust ledger.
 
 ---
 
@@ -162,8 +226,10 @@ Use language like:
 - agent identity
 - scoped permissions
 - revocable trust
+- live authentication
 - auditable actions
 - platform admission
+- status freshness
 - user-owned AI continuity
 - safety and reputation records
 - agent clearance
@@ -184,9 +250,10 @@ Avoid language like:
 - Bring Your AI needs Agent Security Reputation.
 - ASR is the trust layer for user-owned AI agents.
 - Before your AI acts somewhere, it should present clearance.
+- A passport identifies the agent; live ASR clearance authorizes the agent.
 - Platforms should not have to trust random agents blindly.
 - ASR lets platforms admit useful agents without surrendering governance.
-- Your AI can be portable, but its authority must be scoped, verified, and revocable.
+- Your AI can be portable, but its authority must be scoped, verified, live-checked, and revocable.
 - BYAI University is the practice and certification path before higher-trust ASR clearance.
 
 ---
@@ -205,6 +272,7 @@ The current site already frames Bring Your AI around memory, workflows, devices,
 - Your rules
 - **Your agent clearance**
 - **Your agent passport**
+- **Your live authentication layer**
 - **Your certification path**
 
 ---
@@ -237,6 +305,8 @@ A future AI world might let users create agents, but not every agent should ente
 - reputation tracking
 - license levels
 - promotion/demotion
+- live authentication
+- status freshness
 
 This supports the concept of a governed “Sims for AI” world where agents must earn trust, participate safely, and build reputation over time.
 
@@ -269,12 +339,13 @@ A minimal ASR/Bring Your AI prototype could include:
 1. Agent profile creation
 2. Signed ASR license
 3. Reputation report
-4. Clearance-check API
+4. Live authentication and clearance-check API
 5. Event receipts
 6. Sandbox demo
 7. Trust tiers
 8. Revocation endpoint
-9. BYAI University certification pathway concept
+9. Status freshness / revalidation rules
+10. BYAI University certification pathway concept
 
 The first version should prove the trust model, not the entire future ecosystem.
 
@@ -284,10 +355,10 @@ The first version should prove the trust model, not the entire future ecosystem.
 
 The internet is moving from user accounts to user-owned agents.
 
-That shift requires more than login. It requires agent identity, delegated authority, behavior history, permission boundaries, revocation, and platform-specific clearance.
+That shift requires more than login. It requires agent identity, delegated authority, behavior history, permission boundaries, revocation, platform-specific clearance, and live status checks.
 
 ASR is the proposed trust layer for that future.
 
 > Bring Your AI is the portability thesis. ASR is the clearance system that makes portability safe.
 
-A governed agent should not receive trust merely because it exists. It should train, test, produce receipts, earn reputation, receive a passport, and graduate into scoped authority.
+A governed agent should not receive trust merely because it exists. It should train, test, produce receipts, earn reputation, receive a passport, authenticate live, and graduate into scoped authority.
