@@ -1,0 +1,5 @@
+# Optional deterministic PDF extractors used by scripts/build_keith_court_ledger.py
+# The script itself writes CSV/XLSX files with the Python standard library.
+# Install these only when the host lacks the `pdftotext` command and PDFs have text layers.
+pdfplumber>=0.11.0
+pypdf>=4.0.0
