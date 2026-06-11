@@ -1,0 +1,30 @@
+name: Portfolio copy fix
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/portfolio-copy-fix.yml
+permissions:
+  contents: write
+jobs:
+  fix-copy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update portfolio wording
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text()
+          s = s.replace('Michael Chambers brings more than 20 years of hands-on experience across industrial maintenance, automotive diagnostics, fleet maintenance, fabrication, construction, facilities operations, and electro-mechanical troubleshooting. His work is grounded in physical systems, operational pressure, diagnostics, repair logic, safety, and the practical consequences of failure.', 'I bring more than 20 years of hands-on experience across industrial maintenance, automotive diagnostics, fleet maintenance, fabrication, construction, facilities operations, and electro-mechanical troubleshooting. My work is grounded in physical systems, operational pressure, diagnostics, repair logic, safety, and the practical consequences of failure.')
+          s = s.replace('That same systems discipline now drives his work with AI: workflow design, reasoning evaluation, human-in-the-loop operations, memory-aware systems, and practical AI infrastructure for real-world environments.', 'That same systems discipline now drives my work with AI: workflow design, reasoning evaluation, human-in-the-loop operations, memory-aware systems, and practical AI infrastructure for real-world environments.')
+          p.write_text(s)
+          PY
+      - name: Commit wording update
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add index.html
+          git commit -m "Use first-person homepage wording" || exit 0
+          git push
